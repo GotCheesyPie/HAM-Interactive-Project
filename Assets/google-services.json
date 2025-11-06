@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "557172322453",
+    "project_id": "ham-interactive-project",
+    "storage_bucket": "ham-interactive-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:557172322453:android:85a66f9ca3e93a99b3eb9c",
+        "android_client_info": {
+          "package_name": "com.mementogames.opini"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCSJ6bJGJkgw4ugcPTiEgYoF_iu-qFrPjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
