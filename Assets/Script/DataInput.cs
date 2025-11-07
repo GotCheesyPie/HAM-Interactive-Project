@@ -43,15 +43,15 @@ public class DataInput : MonoBehaviour
         if (errorText != null) errorText.text = "";
 
         // Simpan data (Misalnya ke 'GameDataManager' singleton)
-        // PlayerData data = GameDataManager.Instance.CurrentPlayerData;
-        // data.playerName = nameInput.text;
-        // data.playerAge = age;
-        // data.playerCity = cityInput.text;
-        
+        PlayerData data = GameManager.Instance.currentPlayer;
+        data.playerName = nameInput.text;
+        data.playerAge = age;
+        data.playerCity = cityInput.text;
+
         Debug.Log($"Data disimpan: {nameInput.text}, {age}, {cityInput.text}");
 
         // Pindah ke scene berikutnya (Topic Selection)
-        // SceneManager.LoadScene("TopicSelectionScene");
+        SceneLoader.Instance.LoadTopicSelection();
     }
 
     void ShowError(string message)

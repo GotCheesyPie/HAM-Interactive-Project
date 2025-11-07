@@ -63,11 +63,11 @@ public class TopicSelection : MonoBehaviour
     {
         if (selectedTopic != null)
         {
-            // Simpan data (Misalnya ke 'GameDataManager' singleton)
-            // GameDataManager.Instance.CurrentPlayerData.submittedTopicID = selectedTopic.topicID;
+            // Simpan data (Misalnya ke 'GameManager' singleton)
+            GameManager.Instance.currentPlayer.submittedTopicID = selectedTopic.topicID;            
             
             // Pindah ke scene berikutnya (Opinion Writing)
-            // SceneManager.LoadScene("OpinionWritingScene");
+            SceneLoader.Instance.LoadOpinionWriting();
         }
     }
 }

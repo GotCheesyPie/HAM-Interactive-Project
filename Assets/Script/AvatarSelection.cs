@@ -68,11 +68,10 @@ public class AvatarSelection : MonoBehaviour
     {
         if (selectedAvatarID != -1)
         {
-            // Simpan data (Misalnya ke 'GameDataManager' singleton)
-            // GameDataManager.Instance.CurrentPlayerData.selectedAvatarID = selectedAvatarID;
-            
+            GameManager.Instance.currentPlayer.selectedAvatarID = selectedAvatarID;
+
             // Pindah ke scene berikutnya (Data Input)
-            // SceneManager.LoadScene("DataInputScene");
+            SceneLoader.Instance.LoadDataInput();
         }
     }
 }

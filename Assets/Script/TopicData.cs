@@ -38,4 +38,5 @@ public class PlayerData
     // Opini yang baru saja ditulis pemain
     public string submittedTopicID;
     public string submittedOpinionText;
+    public bool didSeePositiveEnding;
 }
