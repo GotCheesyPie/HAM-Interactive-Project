@@ -94,3 +94,7 @@ yarn-debug.log*
 yarn-error.log*
 # Environment files (local configs)
 /.env.*
+# VS Code Development
+*.vscode
+# Mac Development
+*.DS_Store
