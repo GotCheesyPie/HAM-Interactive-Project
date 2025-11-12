@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TopicDataExample
   m_EditorClassIdentifier: 
   topicID: hak_pendidikan
-  topicName: Ditampar Guru Karena Merokok
+  topicName: Hak Atas Pendidikan
   prompt: Seorang murid ketahuan merokok dan akhirnya ditampar oleh gurunya. Walaupun
     tidak sakit tetapi orang tuanya tidak terima oleh sikap gurunya yang menampar.
-    Apakah kamu setuju dengan guru?
+    Apakah pendapatmu tentang hal ini?

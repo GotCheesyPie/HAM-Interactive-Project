@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/InitializationScene.unity
     guid: 2be165f3d225d404faf97c3b57ddc055
   - enabled: 1
-    path: Assets/Scenes/AvatarSelectionScene.unity
+    path: Assets/Scenes/CharacterCreationScene.unity
     guid: 07925364ea655de439c0b357733d5f85
   - enabled: 1
     path: Assets/Scenes/DataInputScene.unity
@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TopicSelectionScene.unity
     guid: edf98bfa5d885ec41a31a1cd6fdf6588
+  - enabled: 1
+    path: Assets/Scenes/OpinionWritingScene.unity
+    guid: 4679548659ac35d4cb3354a96a577d97
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

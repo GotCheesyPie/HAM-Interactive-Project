@@ -33,13 +33,12 @@ public class GameManager : MonoBehaviour
     {
         currentPlayer = new PlayerData();
         disagreedOpinions.Clear();
+        SceneLoader.Instance.LoadCharacterCreation(); 
     }
 
     // Fungsi reset jika pemain ingin "Main Lagi" 
     public void ResetGame()
     {
         InitializePlayer();
-        // Kembali ke scene awal
-        SceneLoader.Instance.LoadCharacterCreation(); 
     }
 }

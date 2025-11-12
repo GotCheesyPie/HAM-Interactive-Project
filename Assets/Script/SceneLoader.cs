@@ -8,13 +8,14 @@ public class SceneLoader : MonoBehaviour
 
     // --- Nama-nama Scene Anda (harus sama dengan di Build Settings) ---
     [Header("Scene Names")]
-    public string avatarSelectionScene = "AvatarSelectionScene";
+    public string characterCreationScene = "CharacterCreationScene";
     public string dataInputScene = "DataInputScene";
     public string topicSelectScene = "TopicSelectionScene";
     public string opinionWriteScene = "OpinionWritingScene";
     public string opinionReviewScene = "OpinionReviewScene"; // Flow 2 
     public string moralChoiceScene = "MoralChoiceScene"; // Flow 3 
     public string endingScene = "EndingScene";
+    public string thankYouScene = "ThankYouScene";
 
     void Awake()
     {
@@ -34,7 +35,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadCharacterCreation()
     {
-        SceneManager.LoadScene(avatarSelectionScene);
+        SceneManager.LoadScene(characterCreationScene);
     }
     
     public void LoadDataInput()
@@ -72,5 +73,9 @@ public class SceneLoader : MonoBehaviour
         // untuk memberitahu scene ending mana yang harus ditampilkan
         GameManager.Instance.currentPlayer.didSeePositiveEnding = isPositiveEnding;
         SceneManager.LoadScene(endingScene);
+    }
+    public void LoadThankYouScreen()
+    {
+        SceneManager.LoadScene(thankYouScene);
     }
 }

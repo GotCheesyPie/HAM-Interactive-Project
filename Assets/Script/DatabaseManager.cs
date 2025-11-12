@@ -1,14 +1,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq; // Untuk mengambil data
+using System; // Diperlukan untuk System.Action
+
+// Namespace Firebase yang diperlukan
+using Firebase;
+using Firebase.Firestore;
+using Firebase.Extensions;
 
 // Singleton untuk koneksi database
 public class DatabaseManager : MonoBehaviour
 {
     public static DatabaseManager Instance { get; private set; }
 
+    private FirebaseFirestore db;
+    private bool isFirebaseInitialized = false;
+
     // --- SIMULASI DATABASE LOKAL ---
-    // Kita gunakan ini untuk testing sebelum ada backend
+    // (Dari skrip Anda)
     private List<Opinion> localOpinionDB;
 
     void Awake()
@@ -18,6 +27,11 @@ public class DatabaseManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
+            // 1. Inisialisasi Firebase
+            InitializeFirebase(); 
+            
+            // 2. Siapkan data seed lokal Anda
             InitializeSeedData();
         }
         else
@@ -26,12 +40,32 @@ public class DatabaseManager : MonoBehaviour
         }
     }
 
-    // Mengisi database palsu dengan 100 opini awal 
+    // --- FUNGSI BARU UNTUK INISIALISASI FIREBASE ---
+    void InitializeFirebase()
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
+            
+            var dependencyStatus = task.Result;
+            if (dependencyStatus == DependencyStatus.Available)
+            {
+                // Firebase siap
+                db = FirebaseFirestore.DefaultInstance;
+                isFirebaseInitialized = true;
+                Debug.Log("DatabaseManager: Firebase Siap.");
+            }
+            else
+            {
+                Debug.LogError($"DatabaseManager: Gagal inisialisasi Firebase: {dependencyStatus}");
+            }
+        });
+    }
+
+    // --- KODE SEED DATA ANDA (Tidak berubah) ---
     void InitializeSeedData()
     {
         localOpinionDB = new List<Opinion>
         {
-            // Contoh untuk 1 topik
+            // ... (data seed Anda ada di sini) ...
             new Opinion { opinionID = "seed001", topicID = "hak_pendidikan", 
                           opinionText = "Pendidikan harusnya gratis untuk semua.", 
                           authorName = "Andi", authorAge = 20, authorCity = "Jakarta" },
@@ -41,62 +75,65 @@ public class DatabaseManager : MonoBehaviour
             new Opinion { opinionID = "seed003", topicID = "hak_pendidikan", 
                           opinionText = "Yang penting bukan gratis, tapi kualitas guru.", 
                           authorName = "Candra", authorAge = 35, authorCity = "Medan" },
-            
-            // ... (tambahkan 97 opini lainnya untuk 10 topik)
-                          
             new Opinion { opinionID = "seed004", topicID = "hak_berpendapat", 
                           opinionText = "Bebas berpendapat boleh, tapi harus sopan.", 
                           authorName = "Dewi", authorAge = 22, authorCity = "Bandung" }
         };
     }
 
-    // --- METODE DATABASE (Placeholder) ---
-
-    // 1. Mengirim opini pemain ke database
-    public void SubmitOpinion(Opinion opinion)
+    // --- FUNGSI SUBMIT BARU (Menggantikan yang lama) ---
+    // Fungsi ini dikirim dari skrip OpinionWriting.cs
+    public void SubmitOpinion(string opinionText, string topicID, PlayerData authorData, 
+                              System.Action onSuccess, System.Action<string> onError)
     {
-        Debug.Log($"DATABASE: Menyimpan opini: '{opinion.opinionText}'");
-        
-        // --- KODE FIREBASE SEBENARNYA (Contoh) ---
-        // FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-        // CollectionReference colRef = db.Collection("opinions");
-        // colRef.AddAsync(opinion); // Ini adalah async operation
-        // --- Akhir Kode Firebase ---
+        if (!isFirebaseInitialized)
+        {
+            onError?.Invoke("Firebase belum siap. Coba lagi sebentar.");
+            return;
+        }
 
-        // Untuk simulasi, kita tambahkan ke DB lokal
-        opinion.opinionID = "player_" + Random.Range(1000, 9999);
-        localOpinionDB.Add(opinion);
+        // 1. Buat data opini (pakai Dictionary agar bisa pakai ServerTimestamp)
+        // Ini cocok dengan struktur database tes Anda
+        var opinionData = new Dictionary<string, object>
+        {
+            { "authorAge", authorData.playerAge },
+            { "authorCity", authorData.playerCity },
+            { "authorName", authorData.playerName },
+            { "createdAt", FieldValue.ServerTimestamp }, // Waktu dari Server
+            { "isSeedData", false },
+            { "text", opinionText }, // Sesuai nama field di Firebase
+            { "topicID", topicID }
+        };
+
+        // 2. Tunjuk ke koleksi "opinions"
+        CollectionReference opinionsCol = db.Collection("opinions");
+
+        // 3. Tambahkan data
+        opinionsCol.AddAsync(opinionData).ContinueWithOnMainThread(task => {
+            if (task.IsCanceled || task.IsFaulted)
+            {
+                Debug.LogError($"Gagal menambahkan dokumen: {task.Exception}");
+                onError?.Invoke(task.Exception.ToString()); // Kirim error
+                return;
+            }
+
+            // Sukses!
+            DocumentReference docRef = task.Result;
+            Debug.Log($"Opini berhasil disubmit dengan ID: {docRef.Id}");
+            onSuccess?.Invoke(); // Panggil callback sukses
+        });
     }
-
-    // 2. Mengambil 10 opini dari database untuk Flow 2 
-    // Ini adalah fungsi ASYNCHRONOUS, jadi kita pakai 'Callback'
+    
+    // --- FUNGSI GET OPINI ANDA (Masih pakai simulasi lokal) ---
     public void GetOpinionsForTopic(string topicID, 
-                                     System.Action<List<Opinion>> onOpinionsReceived)
+                                      System.Action<List<Opinion>> onOpinionsReceived)
     {
-        Debug.Log($"DATABASE: Mengambil 10 opini untuk topik: {topicID}");
-
-        // --- KODE FIREBASE SEBENARNYA (Contoh) ---
-        // FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
-        // Query query = db.Collection("opinions")
-        //                 .WhereEqualTo("topicID", topicID)
-        //                 .Limit(10);
-        //
-        // query.GetSnapshotAsync().ContinueWithOnMainThread(task => {
-        //     List<Opinion> fetchedOpinions = new List<Opinion>();
-        //     QuerySnapshot snapshot = task.Result;
-        //     foreach (DocumentSnapshot document in snapshot.Documents) {
-        //         fetchedOpinions.Add(document.ConvertTo<Opinion>());
-        //     }
-        //     onOpinionsReceived?.Invoke(fetchedOpinions); // Kirim data via callback
-        // });
-        // --- Akhir Kode Firebase ---
-
+        Debug.Log($"DATABASE (Lokal): Mengambil 10 opini untuk topik: {topicID}");
 
         // --- KODE SIMULASI (Lokal) ---
-        // Ambil 10 opini acak dari DB lokal yang sesuai topik
         List<Opinion> results = localOpinionDB
             .Where(o => o.topicID == topicID)
-            .OrderBy(o => Random.value) // Acak urutannya
+            .OrderBy(o => UnityEngine.Random.value) // Acak urutannya
             .Take(10) // Ambil 10 
             .ToList();
         

@@ -21,6 +21,7 @@ public class TopicSelection : MonoBehaviour
     {
         selectButton.interactable = false;
         PopulateTopicList();
+        selectButton.onClick.AddListener(OnSelectClicked);
     }
 
     void PopulateTopicList()
