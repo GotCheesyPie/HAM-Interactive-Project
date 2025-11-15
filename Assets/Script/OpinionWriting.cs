@@ -15,6 +15,7 @@ public class OpinionWriting : MonoBehaviour
     public TMP_InputField opinionInput;
     public TextMeshProUGUI counterText;
     public TextMeshProUGUI promptText;
+    public TextMeshProUGUI questionText;
     public Button submitButton;
     public TextMeshProUGUI errorText; // Opsional, untuk error submit
 
@@ -45,6 +46,7 @@ public class OpinionWriting : MonoBehaviour
 
         // 2. Setup UI
         promptText.text = currentTopic.prompt;
+        questionText.text = $"Apa pendapat kamu tentang {currentTopic.topicName}?";
         
         // --- FITUR 1: 280 Char Limit ---
         opinionInput.characterLimit = 280; 
