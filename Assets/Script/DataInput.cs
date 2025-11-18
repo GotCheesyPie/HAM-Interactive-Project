@@ -26,16 +26,17 @@ public class DataInput : MonoBehaviour
             ShowError("Nama tidak boleh kosong.");
             return;
         }
-        if (string.IsNullOrWhiteSpace(cityInput.text))
-        {
-            ShowError("Kota tidak boleh kosong.");
-            return;
-        }
-
+        
         int age;
         if (!int.TryParse(ageInput.text, out age) || age <= 0 || age > 150)
         {
             ShowError("Umur tidak valid.");
+            return;
+        }
+
+        if (string.IsNullOrWhiteSpace(cityInput.text))
+        {
+            ShowError("Kota tidak boleh kosong.");
             return;
         }
 
