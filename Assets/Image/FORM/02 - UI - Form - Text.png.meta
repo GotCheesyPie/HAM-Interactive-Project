@@ -116,13 +116,13 @@ TextureImporter:
       name: 02 - UI - Form - Text_0
       rect:
         serializedVersion: 2
-        x: 49
-        y: 36
-        width: 823
-        height: 487
+        x: 52
+        y: 39
+        width: 819
+        height: 484
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 4, y: 3, z: 5, w: 73}
       customData: 
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 308a430d95f1949f9ab035a137802a88
     internalID: 0
     vertices: []
     indices: 
