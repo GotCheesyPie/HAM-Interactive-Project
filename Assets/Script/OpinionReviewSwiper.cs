@@ -24,7 +24,7 @@ public class OpinionReviewSwiper : MonoBehaviour
         counterText.text = "Memuat...";
 
         // 1. Bersihkan list
-        GameManager.Instance.disagreedOpinions.Clear();
+        GameManager.Instance.disagreedOpinions.Clear(); //FIXME add null check for testing scene
 
         // 2. Ambil topik
         string currentTopicID = GameManager.Instance.currentPlayer.submittedTopicID;
