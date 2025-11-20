@@ -714,6 +714,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1565865737}
   - component: {fileID: 1565865736}
+  - component: {fileID: 1565865738}
   m_Layer: 0
   m_Name: FirebaseTester
   m_TagString: Untagged
@@ -749,6 +750,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1565865738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565865735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e32b3791e61fac40b6cb9e7dde27338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jsonFile: {fileID: 4900000, guid: 925b5b5b9471e9642937acdf8f0cafd1, type: 3}
 --- !u!1 &2013632371
 GameObject:
   m_ObjectHideFlags: 0
