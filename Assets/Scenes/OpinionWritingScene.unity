@@ -1707,6 +1707,7 @@ MonoBehaviour:
   promptText: {fileID: 918408613}
   questionText: {fileID: 1504584522}
   submitButton: {fileID: 1610555323}
+  backButton: {fileID: 1610555324}
   errorText: {fileID: 691527731}
   choicePanel: {fileID: 133472360}
   choiceYesButton: {fileID: 1574827047}
@@ -2744,6 +2745,17 @@ RectTransform:
 --- !u!114 &1610555323 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7219431338697535225, guid: 09f37e176466043dfb605c76db966013, type: 3}
+  m_PrefabInstance: {fileID: 1610555321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1610555324 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4998647511747924132, guid: 09f37e176466043dfb605c76db966013, type: 3}
   m_PrefabInstance: {fileID: 1610555321}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}

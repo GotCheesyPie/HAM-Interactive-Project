@@ -9,6 +9,7 @@ public class TopicSelection : MonoBehaviour
     // Masukkan 10 Button yang ada di Scene ke sini
     public List<Button> topicButtons; 
     public Button selectButton; // Tombol "Pilih" yang besar di bawah
+    public Button backButton;
     public TextMeshProUGUI topicText;
 
     [Header("Visual Settings")]
@@ -22,8 +23,10 @@ public class TopicSelection : MonoBehaviour
         // Matikan tombol "Pilih" di awal
         selectButton.interactable = false;
         selectButton.onClick.AddListener(OnSelectClicked);
+        backButton.onClick.AddListener(OnBackClicked);
 
         SetupTopicButtons();
+        
     }
 
     void SetupTopicButtons()
@@ -104,4 +107,10 @@ public class TopicSelection : MonoBehaviour
             }
         }
     }
+    
+    private void OnBackClicked()
+    {
+        SceneLoader.Instance.LoadDataInput();
+    }
+
 }

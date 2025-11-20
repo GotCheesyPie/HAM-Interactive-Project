@@ -13,6 +13,7 @@ public class OpinionWriting : MonoBehaviour
     public TextMeshProUGUI promptText;
     public TextMeshProUGUI questionText;
     public Button submitButton;
+    public Button backButton;
     public TextMeshProUGUI errorText; // Opsional, untuk error submit
 
     [Header("Choice Panel UI")]
@@ -50,6 +51,7 @@ public class OpinionWriting : MonoBehaviour
         // 3. Tambahkan Listeners
         opinionInput.onValueChanged.AddListener(OnInputChanged);
         submitButton.onClick.AddListener(OnSubmitClicked);
+        backButton.onClick.AddListener(OnBackClicked);
         choiceYesButton.onClick.AddListener(OnChoiceYes);
         choiceNoButton.onClick.AddListener(OnChoiceNo);
 
@@ -103,6 +105,12 @@ public class OpinionWriting : MonoBehaviour
             }
         );
     }
+    
+    private void OnBackClicked()
+    {
+        SceneLoader.Instance.LoadTopicSelection();
+    }
+
 
     // --- (Penanganan Flow 1, Step 5) ---
 
