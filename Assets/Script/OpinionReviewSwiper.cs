@@ -12,16 +12,15 @@ public class OpinionReviewSwiper : MonoBehaviour
 
     [Header("UI References")]
     public GameObject loadingPanel;
-    public TextMeshProUGUI counterText;
 
     // --- Card Stack System ---
     private List<Opinion> opinionsToReview;
     private int currentOpinionIndex;
+    private CountdownSpriteSwapper counterSprite;
 
     void Start()
     {
         loadingPanel.SetActive(true);
-        counterText.text = "Memuat...";
 
         // 1. Bersihkan list
         GameManager.Instance.disagreedOpinions.Clear(); //FIXME add null check for testing scene
@@ -35,6 +34,9 @@ public class OpinionReviewSwiper : MonoBehaviour
             OnOpinionsReceived, // Sukses
             OnError             // Gagal
         );
+
+        // 4. Set Counter Sprite
+        counterSprite = GetComponent<CountdownSpriteSwapper>();
     }
 
     void OnOpinionsReceived(List<Opinion> opinions)
@@ -58,7 +60,6 @@ public class OpinionReviewSwiper : MonoBehaviour
     {
         Debug.LogError($"Gagal mengambil opini: {error}");
         loadingPanel.SetActive(true);
-        counterText.text = "Gagal memuat opini.";
     }
 
     // --- Sistem Card Stack ---
@@ -80,7 +81,7 @@ public class OpinionReviewSwiper : MonoBehaviour
         card.SetData(data);
 
         // 4. Update counter
-        counterText.text = $"{currentOpinionIndex + 1} / {opinionsToReview.Count}";
+        counterSprite.IncrementIndex();
 
         // 5. Dengarkan event OnCardSwiped dari kartu
         card.OnCardSwiped += HandleCardSwipe;

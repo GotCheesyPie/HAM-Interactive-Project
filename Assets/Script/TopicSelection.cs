@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using System.Linq;
 
 public class TopicSelection : MonoBehaviour
 {
@@ -26,7 +27,31 @@ public class TopicSelection : MonoBehaviour
         backButton.onClick.AddListener(OnBackClicked);
 
         SetupTopicButtons();
-        
+
+        // Ambil ID yang tersimpan di GameManager
+        string savedID = GameManager.Instance.currentPlayer.submittedTopicID;
+
+        // Cek apakah ID tidak kosong (artinya user pernah memilih)
+        if (!string.IsNullOrEmpty(savedID))
+        {
+            List<TopicData> topics = GameManager.Instance.globalTopicDataList; 
+            // Kita cari topik mana yang punya ID ini di dalam list 'topics'
+            for (int i = 0; i < topics.Count; i++)
+            {
+                // Jika ketemu topik yang ID-nya sama
+                if (topics[i].topicID == savedID)
+                {
+                    // Pastikan tombol di index yang sama tersedia
+                    if (i < topicButtons.Count)
+                    {
+                        // Panggil fungsi klik secara manual
+                        // Ini akan otomatis mengubah warna jadi kuning & mengaktifkan tombol "Pilih"
+                        OnTopicButtonClicked(topics[i], topicButtons[i]);
+                    }
+                    break; // Berhenti mencari setelah ketemu
+                }
+            }
+        }
     }
 
     void SetupTopicButtons()
