@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d4b9c1662a61a44993b910df07b9f8, type: 3}
+  m_Name: 1_Berpendapat_TopicData
+  m_EditorClassIdentifier: 
+  topicID: hak_berpendapat
+  topicName: Hak Kebebasan Berpendapat
+  prompt: 'Kasus Prita Mulyasari: Prita dipenjara dan didenda karena mengirim email
+    keluhan pribadi tentang layanan rumah sakit. Ia dijerat UU ITE pasal pencemaran
+    nama baik, memicu gerakan solidaritas publik karena dianggap sebagai pembungkaman
+    suara konsumen.'

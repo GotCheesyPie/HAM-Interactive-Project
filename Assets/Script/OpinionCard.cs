@@ -9,8 +9,10 @@ using System.Collections;
 public class OpinionCard : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     [Header("UI References")]
+    public TextMeshProUGUI topicText;
     public TextMeshProUGUI opinionText;
-    public TextMeshProUGUI authorText;
+    public TextMeshProUGUI nameAgeText;
+    public TextMeshProUGUI cityText;
 
     [Header("Swipe Settings")]
     public float swipeThreshold = 150f; // Jarak minimum untuk swipe
@@ -40,8 +42,10 @@ public class OpinionCard : MonoBehaviour, IPointerDownHandler, IDragHandler, IPo
     public void SetData(Opinion op)
     {
         opinionData = op;
+        topicText.text = op.topicID;
         opinionText.text = op.opinionText;
-        authorText.text = $"Ditulis oleh {op.authorName}, berumur {op.authorAge}, dari {op.authorCity}";
+        nameAgeText.text = $"{op.authorName} ({op.authorAge} Tahun)";
+        cityText.text = $"Dari {op.authorCity}";
     }
 
     // ----------------------------------------------------

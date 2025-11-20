@@ -14,6 +14,39 @@ public class GameManager : MonoBehaviour
     // untuk digunakan di Flow 3 
     public List<Opinion> disagreedOpinions = new List<Opinion>();
 
+    [Header("Global Assets")]
+    public List<Sprite> globalAvatarList;
+    public List<TopicData> globalTopicDataList;
+
+    public Sprite GetCurrentPlayerSprite()
+    {
+        int id = currentPlayer.selectedAvatarID;
+        
+        // Cek validasi agar tidak error
+        if (id >= 0 && id < globalAvatarList.Count)
+        {
+            return globalAvatarList[id];
+        }
+        return null; // Atau return sprite default jika error
+    }
+
+    public TopicData GetCurrentSelectedTopicData()
+    {
+        string id = currentPlayer.submittedTopicID;
+
+        if (!string.IsNullOrEmpty(id))
+        {
+            foreach (TopicData topic in globalTopicDataList)
+            {
+                if (topic.topicID == id)
+                {
+                    return topic;
+                }
+            }
+        }
+        return null;
+    }
+
     void Awake()
     {
         // Setup Singleton Pattern
@@ -33,6 +66,8 @@ public class GameManager : MonoBehaviour
     {
         currentPlayer = new PlayerData();
         disagreedOpinions.Clear();
+        currentPlayer.playerAge = -1;
+        currentPlayer.selectedAvatarID = -1;
         SceneLoader.Instance.LoadCharacterCreation(); 
     }
 

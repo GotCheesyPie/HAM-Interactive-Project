@@ -163,13 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fccab3e17acb284280584f666b10ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  avatarSelectionScene: AvatarSelectionScene
+  characterCreationScene: CharacterCreationScene
   dataInputScene: DataInputScene
   topicSelectScene: TopicSelectionScene
   opinionWriteScene: OpinionWritingScene
   opinionReviewScene: OpinionReviewScene
   moralChoiceScene: MoralChoiceScene
   endingScene: EndingScene
+  thankYouScene: ThankYouScene
 --- !u!1 &524920483
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,6 +405,38 @@ MonoBehaviour:
     submittedOpinionText: 
     didSeePositiveEnding: 0
   disagreedOpinions: []
+  globalAvatarList:
+  - {fileID: 4995999362982356176, guid: a18f1c0f8a31edc4999894b0d3c74d95, type: 3}
+  - {fileID: 6520998148731647015, guid: f5dda84431f7bf8469c4b5864eafe194, type: 3}
+  - {fileID: -8322574475896955560, guid: 37e4d3524ad864248bec1ac203c069fb, type: 3}
+  - {fileID: -5906712015386902290, guid: e3fee43cf5c8a88409fdf512ca912c32, type: 3}
+  - {fileID: -7831387573095839071, guid: 19fcd22ed9379a149902b5a08731b0f5, type: 3}
+  - {fileID: 2980736179879746249, guid: d050ca7a04f441d4994b94f52134ed83, type: 3}
+  - {fileID: 7463292362300933179, guid: c7bcb56c7ff18ae42af2dd158d7e77e4, type: 3}
+  - {fileID: -6785448258957164715, guid: 12ea0914327648e4699d5b4606ad0858, type: 3}
+  - {fileID: -4467466256436731447, guid: 9dcd2a07b34e2454c8a8d47c9c065e7b, type: 3}
+  - {fileID: -3815699554218578781, guid: 93f490ce1d8e530418d270ee09a00477, type: 3}
+  - {fileID: 2221201734560996273, guid: a1ffdc8624929244ea9784787c802523, type: 3}
+  - {fileID: -6161994535546188686, guid: c9c437eeacf0181468cfde51deea3e97, type: 3}
+  - {fileID: 4995999362982356176, guid: 734a0fcf0ff996e44ad62419726a8d32, type: 3}
+  - {fileID: -5821150631460880743, guid: e10887216491b8e4188adc4e206640dc, type: 3}
+  - {fileID: -8744837695945169726, guid: 639d555c656285a41802ef7c0a0521b8, type: 3}
+  - {fileID: -6441551601963004983, guid: b508722962e4a0f45a5cc6f5ea4347e3, type: 3}
+  - {fileID: 5597607682269157706, guid: 54789c2d787acf948a55a294ad52db1f, type: 3}
+  - {fileID: -6161994535546188686, guid: 0314323ca88c393418c766227bf147a7, type: 3}
+  - {fileID: 5709497022203766284, guid: 7e05a383a410a6844826eb9ebe61a963, type: 3}
+  - {fileID: -7088543985836164412, guid: f80887b818ebb104f81af1b447e8c77e, type: 3}
+  globalTopicDataList:
+  - {fileID: 11400000, guid: 8c2b525a61ff53e48aae8793952dbbf4, type: 2}
+  - {fileID: 11400000, guid: a04be866920f43d4685e242c11ce642a, type: 2}
+  - {fileID: 11400000, guid: de44a229f9d6eae43bad3660329f656e, type: 2}
+  - {fileID: 11400000, guid: 294389d06e175a3429b8e674fd2814d4, type: 2}
+  - {fileID: 11400000, guid: 781982568f57ac846bbe0fcc8897b833, type: 2}
+  - {fileID: 11400000, guid: fbcb265756a45424a8fb87d1b7e0142c, type: 2}
+  - {fileID: 11400000, guid: f6e5a823e12864c4ab1548ade43edfba, type: 2}
+  - {fileID: 11400000, guid: 36f9a11038c8cc246ba0a014b89ce3bc, type: 2}
+  - {fileID: 11400000, guid: fb3cbfc3374b4b44eb03b4b6a63c46f1, type: 2}
+  - {fileID: 11400000, guid: 741ae25b7be2e5b4a89c88080bbe4bf7, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

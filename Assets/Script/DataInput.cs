@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro; // Gunakan TextMeshPro
+using TMPro;
+using System; // Gunakan TextMeshPro
 
 public class DataInput : MonoBehaviour
 {
@@ -9,13 +10,34 @@ public class DataInput : MonoBehaviour
     public TMP_InputField ageInput; // "Umur" 
     public TMP_InputField cityInput; // "Kota" 
     public Button continueButton; // "Lanjut" 
+    public Button backButton; // "Kembali"
     public TextMeshProUGUI errorText; // Teks untuk menampilkan error
+
+    [Header("Display")]
+    public Image avatarDisplay; // Tempat menampilkan avatar
 
     void Start()
     {
         // Tambahkan listener ke tombol
         continueButton.onClick.AddListener(OnContinueClicked);
+        backButton.onClick.AddListener(OnBackClicked);
         if (errorText != null) errorText.text = "";
+        ShowSelectedAvatar();
+        
+        PlayerData current = GameManager.Instance.currentPlayer;
+        
+        if (!string.IsNullOrEmpty(current.playerName))
+        {
+            nameInput.text = current.playerName;
+        }
+        if (current.playerAge > 0)
+        {
+            ageInput.text = current.playerAge.ToString();
+        }
+        if (!string.IsNullOrEmpty(current.playerCity))
+        {
+            cityInput.text = current.playerCity;
+        }
     }
 
     public void OnContinueClicked()
@@ -54,10 +76,32 @@ public class DataInput : MonoBehaviour
         // Pindah ke scene berikutnya (Topic Selection)
         SceneLoader.Instance.LoadTopicSelection();
     }
+    
+    private void OnBackClicked()
+    {
+        SceneLoader.Instance.LoadCharacterCreation();
+    }
 
     void ShowError(string message)
     {
         Debug.LogWarning(message);
         if (errorText != null) errorText.text = message;
+    }
+
+    private void ShowSelectedAvatar()
+    {
+        if (avatarDisplay != null)
+        {
+            // Minta gambar ke GameManager
+            Sprite selectedSprite = GameManager.Instance.GetCurrentPlayerSprite();
+            
+            if (selectedSprite != null)
+            {
+                avatarDisplay.sprite = selectedSprite;
+                // Pastikan aspect ratio gambar tidak gepeng
+                avatarDisplay.preserveAspect = true; 
+                avatarDisplay.SetNativeSize();
+            }
+        }
     }
 }

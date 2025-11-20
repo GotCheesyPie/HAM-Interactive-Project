@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d4b9c1662a61a44993b910df07b9f8, type: 3}
+  m_Name: 3_Pekerjaan_TopicData
+  m_EditorClassIdentifier: 
+  topicID: hak_pekerjaan
+  topicName: Hak atas Pekerjaan Yang Layak
+  prompt: 'Kasus Marsinah: Marsinah, seorang buruh pabrik di Jawa Timur, diculik,
+    disiksa, dan dibunuh setelah memimpin unjuk rasa menuntut kenaikan upah sesuai
+    UMR. Kematiannya menjadi simbol perlawanan buruh melawan eksploitasi dan kekerasan
+    aparat di lingkungan kerja.'

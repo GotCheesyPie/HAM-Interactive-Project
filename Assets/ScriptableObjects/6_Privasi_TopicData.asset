@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66d4b9c1662a61a44993b910df07b9f8, type: 3}
-  m_Name: TopicDataExample
+  m_Name: 6_Privasi_TopicData
   m_EditorClassIdentifier: 
-  topicID: hak_pendidikan
-  topicName: Hak Atas Pendidikan
-  prompt: Seorang murid ketahuan merokok dan akhirnya ditampar oleh gurunya. Walaupun
-    tidak sakit tetapi orang tuanya tidak terima oleh sikap gurunya yang menampar.
-    Apakah pendapatmu tentang hal ini?
+  topicID: hak_privasi
+  topicName: Hak atas Privasi
+  prompt: 'Kasus Cambridge Analytica: Data pribadi jutaan pengguna Facebook diambil
+    tanpa izin oleh Cambridge Analytica untuk memanipulasi pemilih dalam Pemilu AS
+    2016. Pelanggaran ini membuktikan betapa rentannya data privasi digital dieksploitasi
+    untuk kepentingan politik.'

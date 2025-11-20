@@ -6,10 +6,6 @@ using System.Linq;
 
 public class OpinionWriting : MonoBehaviour
 {
-    [Header("Data Assets")]
-    // Masukkan SEMUA 10 ScriptableObject TopicData Anda ke sini
-    public List<TopicData> allTopics;
-
     [Header("Opinion Panel UI")]
     public GameObject opinionPanel;
     public TMP_InputField opinionInput;
@@ -35,8 +31,8 @@ public class OpinionWriting : MonoBehaviour
         if (errorText != null) errorText.text = "";
 
         // 1. Ambil data dari GameManager
-        currentTopicID = GameManager.Instance.currentPlayer.submittedTopicID;
-        currentTopic = allTopics.FirstOrDefault(t => t.topicID == currentTopicID);
+        currentTopic = GameManager.Instance.GetCurrentSelectedTopicData();
+        currentTopicID = currentTopic.topicID;
 
         if (currentTopic == null)
         {

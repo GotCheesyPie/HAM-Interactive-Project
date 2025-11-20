@@ -5,9 +5,9 @@ using TMPro;
 
 public class AvatarSelection : MonoBehaviour
 {
-    [Header("Avatar Assets")]
-    // Masukkan 40 sprite avatar Anda di sini 
-    public List<Sprite> avatarPresets; 
+    // [Header("Avatar Assets")]
+    // // Masukkan 40 sprite avatar Anda di sini 
+    // public List<Sprite> avatarPresets; 
 
     [Header("UI References")]
     public Transform avatarGridContainer; // Objek "Content" dari Scroll View
@@ -21,19 +21,36 @@ public class AvatarSelection : MonoBehaviour
     void Start()
     {
         // Nonaktifkan tombol lanjut sampai avatar dipilih
-        continueButton.interactable = false;
         PopulateAvatarGrid();
-        if (selectedAvatarDisplay != null)
-        {
-            selectedAvatarDisplay.gameObject.SetActive(false);
-        }
         continueButton.onClick.AddListener(OnContinueClicked);
+        
+        // Ambil ID yang tersimpan di GameManager
+        int savedID = GameManager.Instance.currentPlayer.selectedAvatarID;
+
+        // Cek apakah ID valid (artinya pemain sudah pernah memilih sebelumnya)
+        if (savedID != -1)
+        {
+            // Jika ada data, kita "pura-pura" klik avatar tersebut
+            // Ini akan otomatis menampilkan gambar besar & mengaktifkan tombol lanjut
+            OnAvatarSelected(savedID);
+            
+            Debug.Log($"Memuat kembali avatar yang dipilih sebelumnya: ID {savedID}");
+        }
+        else
+        {
+            // Jika belum ada data (-1), set tampilan default (kosong)
+            continueButton.interactable = false;
+            if (selectedAvatarDisplay != null) 
+                selectedAvatarDisplay.gameObject.SetActive(false);
+        }
     }
 
     // Mengisi grid dengan 40 tombol avatar
     void PopulateAvatarGrid()
     {
-        for (int i = 1; i <= avatarPresets.Count; i++)
+        List<Sprite> avatarPresets = GameManager.Instance.globalAvatarList;
+        
+        for (int i = 0; i < avatarPresets.Count; i++)
         {
             // Buat tombol baru
             GameObject buttonObj = Instantiate(avatarButtonPrefab, avatarGridContainer);
@@ -42,10 +59,10 @@ public class AvatarSelection : MonoBehaviour
             TextMeshProUGUI avatarLabel = buttonObj.GetComponentInChildren<TextMeshProUGUI>();
 
             // Set gambar
-            avatarImage.sprite = avatarPresets[i - 1];
+            avatarImage.sprite = avatarPresets[i];
 
             // Set label
-            avatarLabel.text = "Avatar " + i;
+            avatarLabel.text = "Avatar " + (i + 1);
 
             // Tambahkan listener
             int index = i; // Penting untuk menyimpan 'i' dalam variabel lokal
@@ -59,13 +76,13 @@ public class AvatarSelection : MonoBehaviour
         selectedAvatarID = avatarID;if (selectedAvatarDisplay != null)
         {
             // 1. Atur sprite-nya
-            selectedAvatarDisplay.sprite = avatarPresets[avatarID];
+            selectedAvatarDisplay.sprite = GameManager.Instance.globalAvatarList[avatarID];
 
             // 2. Tampilkan kotaknya
             selectedAvatarDisplay.gameObject.SetActive(true);
 
             // 3. Ubah labelnya
-            selectedAvatarLabel.text = "Avatar " + avatarID;
+            selectedAvatarLabel.text = "Avatar " + (avatarID + 1);
         }
 
         // Aktifkan tombol "Lanjut" 
