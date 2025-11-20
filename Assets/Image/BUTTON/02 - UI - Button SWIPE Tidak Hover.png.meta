@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2eb5ddf033e6f384f90198f44bb5847a
+guid: 5bfaa72d14bad436286b8802cb8ef3e8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4118428590447197756
-    second: 02 - UI - Slide Panel Portrait_0
+      213: -8870464799998568507
+    second: 02 - UI - Button SWIPE Tidak Hover_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,67 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02 - UI - Slide Panel Portrait_0
+      name: 02 - UI - Button SWIPE Tidak Hover_0
       rect:
         serializedVersion: 2
-        x: 41
-        y: 1016
-        width: 817
-        height: 88
+        x: 8
+        y: 21
+        width: 464
+        height: 367
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 23, y: 9, z: 26, w: 24}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3efa6e8bf8972930800000000000000
-      internalID: 4118428590447197756
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02 - UI - Slide Panel Portrait_1
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 47
-        width: 769
-        height: 971
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 25, y: 29, z: 29, w: 18}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ede261ead100474e1b4ca1ea863a264d
-      internalID: -1726174274
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02 - UI - Slide Panel Portrait_2
-      rect:
-        serializedVersion: 2
-        x: 810
-        y: 45
-        width: 49
-        height: 971
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 25, z: 0, w: 18}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4796005b8f0ce1fcab8b018d8f422033
-      internalID: -1872945626
+      spriteID: 5c79a7b1347c5e480800000000000000
+      internalID: -8870464799998568507
       vertices: []
       indices: 
       edges: []
@@ -182,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: b0151a27bcacf2231bc185629245488e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -192,9 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      02 - UI - Slide Panel Portrait_0: 4118428590447197756
-      02 - UI - Slide Panel Portrait_1: -1726174274
-      02 - UI - Slide Panel Portrait_2: -1872945626
+      02 - UI - Button SWIPE Tidak Hover_0: -8870464799998568507
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

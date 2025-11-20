@@ -116,13 +116,13 @@ TextureImporter:
       name: 02 - UI - Screen Panel_0
       rect:
         serializedVersion: 2
-        x: 42
-        y: 39
+        x: 118
+        y: 741
         width: 847
-        height: 682
+        height: 681
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 23, y: 20, z: 267, w: 89}
       customData: 
       outline: []
       physicsShape: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ce4adca621c7420048201874ca142454
     internalID: 0
     vertices: []
     indices: 
