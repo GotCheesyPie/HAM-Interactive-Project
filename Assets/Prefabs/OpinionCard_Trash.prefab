@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5738665962894129016}
   - component: {fileID: 2215364722963818239}
-  - component: {fileID: 3598416981836124767}
+  - component: {fileID: 8523942299234424795}
   m_Layer: 5
   m_Name: OpinionCard_Trash
   m_TagString: Untagged
@@ -51,26 +51,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277515594319303561}
   m_CullTransparentMesh: 1
---- !u!114 &3598416981836124767
+--- !u!114 &8523942299234424795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277515594319303561}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ae628f9b91027e4da5acdb6d466bd22, type: 3}
+  m_Script: {fileID: 11500000, guid: cb65464265a633949b95e542e61d4616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   topicText: {fileID: 4847534065568150691}
   opinionText: {fileID: 5766624917932772109}
   nameAgeText: {fileID: 5236789656272849339}
   cityText: {fileID: 8990474993940265509}
-  swipeThreshold: 150
-  rotationFactor: 10
-  moveSpeed: 20
-  snapBackSpeed: 10
 --- !u!1 &1530981117057952674
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +487,7 @@ GameObject:
   - component: {fileID: 1586615844274510756}
   - component: {fileID: 4847534065568150691}
   m_Layer: 5
-  m_Name: TopikText
+  m_Name: TopicText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

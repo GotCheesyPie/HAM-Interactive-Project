@@ -6,7 +6,7 @@ public class CountdownSpriteSwapper : MonoBehaviour
 {
     public Sprite[] sprites = new Sprite[10];
     public Image Image;
-    int CurrentIdx = 0;
+    int CurrentIdx = -1;
 
     void Update()
     {
@@ -15,7 +15,7 @@ public class CountdownSpriteSwapper : MonoBehaviour
 
     void ShowSpriteAtIndex(int idx)
     {
-        if(idx == sprites.Count()) { return; }
+        if(idx == sprites.Count() || idx < 0) { return; }
         if (Image.sprite == sprites[idx]) { return; }
         Image.sprite = sprites[idx];
     }

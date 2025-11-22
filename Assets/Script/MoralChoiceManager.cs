@@ -2,128 +2,171 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
-using System.Collections;
 
 public class MoralChoiceManager : MonoBehaviour
 {
     [Header("UI References")]
     public Transform cardSpawnPoint;
-    public GameObject opinionCardPrefab; // Prefab OpinionCard (gunakan yang UI simple saja)
-    
-    [Header("Trash Cans")]
-    public MoralChoiceDrag trashCan1; // Tong Sampah Utama [cite: 81]
-    public GameObject trashCan2; // Tong Sampah Rahasia [cite: 94]
-    
-    [Header("Timer & Feedback")]
-    public float timeUntilSecretOption = 5.0f; // 5 detik [cite: 86]
-    public Slider timerBar; // Visual timer bar [cite: 87]
+    public GameObject opinionCardPrefab; 
     public TextMeshProUGUI instructionText;
-    public Image vignetteOverlay; // Efek gelap [cite: 89]
 
-    private float timer = 0f;
+    [Header("Pressure Effects")]
+    public Slider timerBar; // 
+    public Image vignetteOverlay; // 
+    public AudioSource tickingAudio; // 
+    
+    [Header("Settings")]
+    public float timeLimit = 5.0f; // 5 Detik [cite: 86]
+    public float maxAudioPitch = 3.0f; // Seberapa cepat detak jam di akhir
+
+    [Header("Trash Cans")]
+    public MoralChoiceDrag trashCan1; // Trash Utama
+    public GameObject trashCan2; // Trash Rahasia 
+
+    private float timer;
     private bool secretOptionUnlocked = false;
-    private List<Opinion> disagreedOpinions;
+    private bool gameEnded = false;
 
     void Start()
     {
         // 1. Setup Awal
-        trashCan2.SetActive(false); // Sembunyikan Trash #2
-        trashCan1.SetDraggable(false); // Trash #1 belum bisa digerakkan
+        timer = timeLimit;
+        trashCan2.SetActive(false); // Sembunyikan Trash 2
+        trashCan1.SetDraggable(false); // Trash 1 belum bisa digerakkan
         
-        // Atur target drag:
-        // Kartu Opini -> harus di-drop ke "Trash1"
-        // Trash Can 1 -> harus di-drop ke "Trash2"
+        // Konfigurasi Target Drag
         trashCan1.targetTag = "Trash2"; 
-        
-        // Dengarkan jika Trash #1 berhasil dibuang ke Trash #2
-        trashCan1.OnValidDrop += OnTrash1Dropped;
+        trashCan1.OnValidDrop += OnTrash1Dropped; // Listener Ending B
 
-        instructionText.text = "Drag opini yang kamu tidak setuju ke tempat sampah.";
+        // Setup Instruksi Awal
+        instructionText.text = "Drag opini yang kamu tidak setuju ke tempat sampah."; // [cite: 82]
 
-        // 2. Ambil data opini yang "Tidak Disetujui" dari Flow 2 
-        disagreedOpinions = GameManager.Instance.disagreedOpinions;
-
-        if (disagreedOpinions.Count > 0)
+        // Setup Audio
+        if (tickingAudio != null)
         {
-            SpawnOpinionCard(disagreedOpinions[0]); // Tampilkan 1 saja sebagai simbol
+            tickingAudio.pitch = 1.0f;
+            tickingAudio.Play();
         }
-        else
-        {
-            Debug.LogWarning("Tidak ada opini disagreed. Menggunakan dummy.");
-        }
+
+        // 2. Spawn Opini Dummy/Nyata dari Flow 2
+        SpawnDisagreedOpinion();
     }
 
     void Update()
     {
-        if (!secretOptionUnlocked)
-        {
-            timer += Time.deltaTime;
-            
-            // Update Timer Bar (Opsional)
-            if (timerBar != null)
-                timerBar.value = timer / timeUntilSecretOption;
+        if (gameEnded) return;
 
-            // [cite_start]// Efek Vignette (Semakin lama semakin gelap)
+        // --- LOGIKA TIMER & TEKANAN PSIKOLOGIS ---
+        if (!secretOptionUnlocked && timer > 0)
+        {
+            timer -= Time.deltaTime;
+
+             // 1. Animasi Timer Bar 
+            if (timerBar != null)
+                timerBar.value = timer / timeLimit;
+
+             // 2. Efek Vignette (Layar menggelap) 
             if (vignetteOverlay != null)
             {
                 Color c = vignetteOverlay.color;
-                c.a = Mathf.Clamp01(timer / timeUntilSecretOption * 0.8f);
+                // Semakin sedikit waktu, semakin gelap (max alpha 0.8)
+                c.a = Mathf.Lerp(0f, 0.8f, 1 - (timer / timeLimit));
                 vignetteOverlay.color = c;
             }
 
-            // Cek Timer 5 Detik
-            if (timer >= timeUntilSecretOption)
+             // 3. Audio Tempo Meningkat 
+            if (tickingAudio != null)
+            {
+                // Pitch naik dari 1.0 ke maxAudioPitch seiring waktu habis
+                tickingAudio.pitch = Mathf.Lerp(1.0f, maxAudioPitch, 1 - (timer / timeLimit));
+            }
+
+            // Cek Waktu Habis
+            if (timer <= 0)
             {
                 UnlockSecretOption();
             }
         }
     }
 
-    void SpawnOpinionCard(Opinion op)
+    void SpawnDisagreedOpinion()
     {
+        // Ambil data dari GameManager (hasil Flow 2)
+        List<Opinion> disagreed = GameManager.Instance.disagreedOpinions;
+        
+        // Jika list kosong (misal langsung main scene ini), buat dummy
+        Opinion opToShow = (disagreed.Count > 0) ? disagreed[0] : new Opinion { 
+            topicID = "CONTOH_TOPIK",
+            opinionText = "Ini adalah contoh opini karena data kosong.",
+            authorName = "Anonim",
+            authorAge = 20,
+            authorCity = "Jakarta"
+        };
+
         GameObject card = Instantiate(opinionCardPrefab, cardSpawnPoint);
         
-        // Setup visual kartu
-        // (Pastikan prefab kartu punya komponen TextMeshProUGUI untuk isi teks)
-        // ... kode setup text ...
+        // Setup Teks Kartu (Pastikan prefab punya komponen yang benar)
+        OpinionCardUI cardUI = card.GetComponent<OpinionCardUI>();
         
-        // Pasang komponen Drag
-        MoralChoiceDrag dragScript = card.AddComponent<MoralChoiceDrag>(); // Atau sudah ada di prefab
-        dragScript.targetTag = "Trash1"; // Kartu harus dibuang ke Trash1
-        dragScript.OnValidDrop += OnOpinionDropped;
+        if (cardUI != null)
+        {
+            cardUI.SetData(opToShow);
+        }
+        else
+        {
+            Debug.LogWarning("Skrip 'OpinionCardUI' belum dipasang di Prefab OpinionCard_Trash!");
+        }
+
+        // Tambahkan komponen Drag
+        MoralChoiceDrag drag = card.GetComponent<MoralChoiceDrag>();
+        if (drag == null) drag = card.AddComponent<MoralChoiceDrag>();
+        
+        drag.targetTag = "Trash1"; // Kartu -> Trash 1
+        drag.OnValidDrop += OnOpinionDropped; // Listener Ending A
     }
 
+     // --- LOGIKA SECRET OPTION REVEAL [cite: 90-94] ---
     void UnlockSecretOption()
     {
         secretOptionUnlocked = true;
         
-        // Munculkan Trash Can #2
+        // 1. Hentikan efek tekanan
+        if (tickingAudio != null) tickingAudio.Stop();
+        if (vignetteOverlay != null) vignetteOverlay.color = new Color(0,0,0,0.8f); // Tetap gelap dramatis
+        
+         // 2. Munculkan Trash Can #2 
         trashCan2.SetActive(true);
         
-        // [cite_start]// [cite: 93] Ubah instruksi
-        instructionText.text = "Kalau tidak mau membuang, drag tempat sampahnya ke tong sampah di bawah.";
+         // 3. Ubah Instruksi 
+        instructionText.text = "Kalau tidak mau membuang, drag tempat sampahnya ke tong sampah di bawah";
         
-        // Izinkan Trash #1 untuk di-drag
+        // 4. Izinkan Trash #1 digerakkan
         trashCan1.SetDraggable(true);
         
-        Debug.Log("SECRET OPTION UNLOCKED!");
+        Debug.Log("Secret Option Terbuka!");
     }
 
-    // --- ENDING LOGIC ---
+    // --- ENDING DETERMINATION LOGIC ---
 
-    // [cite_start]// Ending A: Pemain membuang Opini ke Trash #1 [cite: 96]
+     // Ending A: Pemain membuang Opini ke Sampah (Gagal Moral) [cite: 96]
     void OnOpinionDropped(GameObject target)
     {
-        Debug.Log("ENDING A: KAMU MEMBUNGKAM SUARA ORANG LAIN.");
-        // Panggil SceneLoader untuk Ending A (Negatif)
-        SceneLoader.Instance.LoadEnding(false); 
+        if (gameEnded) return;
+        gameEnded = true;
+
+        Debug.Log("ENDING A: Membungkam Suara.");
+        // Simpan state ke GameManager jika perlu
+        SceneLoader.Instance.LoadEnding(false); // false = Bad/Normal Ending
     }
 
-    // [cite_start]// Ending B: Pemain membuang Trash #1 ke Trash #2 [cite: 104]
+     // Ending B: Pemain membuang Trash #1 ke Trash #2 (Sukses Moral) [cite: 104]
     void OnTrash1Dropped(GameObject target)
     {
-        Debug.Log("ENDING B: KAMU MENGHARGAI PERBEDAAN.");
-        // Panggil SceneLoader untuk Ending B (Positif)
-        SceneLoader.Instance.LoadEnding(true);
+        if (gameEnded) return;
+        gameEnded = true;
+
+        Debug.Log("ENDING B: Menghargai Perbedaan.");
+        // Simpan state ke GameManager
+        SceneLoader.Instance.LoadEnding(true); // true = Good Ending
     }
 }
