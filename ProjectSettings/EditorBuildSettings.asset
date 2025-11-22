@@ -23,6 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OpinionReviewScene.unity
     guid: c4c67286a3bbbc94fb7c9cb7f2e83c63
+  - enabled: 1
+    path: Assets/Scenes/MoralChoiceScene.unity
+    guid: f087f8e9fb56c244ca4c4083caa9d132
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

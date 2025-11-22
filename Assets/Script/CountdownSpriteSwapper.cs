@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,7 @@ public class CountdownSpriteSwapper : MonoBehaviour
 
     void ShowSpriteAtIndex(int idx)
     {
+        if(idx == sprites.Count()) { return; }
         if (Image.sprite == sprites[idx]) { return; }
         Image.sprite = sprites[idx];
     }
