@@ -240,7 +240,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5384016617352448319, guid: 6f94c96b1736b044097442d7e8227190, type: 3}
+  m_Sprite: {fileID: -1695166717111382319, guid: b7c60086bdf7d974296ac6f72e2562e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9093869533564232302, guid: 7323ca93d412499488e768ecc62cbedd, type: 3}
+  m_Sprite: {fileID: -5570557181801515515, guid: 920f459425134e444aa1ac8a978608c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -390,7 +390,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1953976642137324968, guid: 8dd85192ad3fcbe4aa8fa81a6eef2965, type: 3}
+  m_Sprite: {fileID: 6979565888639578237, guid: 86daf85f82ee78344bd83fba1c97153d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -650,7 +650,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5866890571425602912, guid: 0c7a262757ca3a64789b996a2396562f, type: 3}
+  m_Sprite: {fileID: 341396614399076386, guid: 2be13d953a820644cbb4b0d584ce347b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 988006863083202039, guid: 2d3cc8488e141f8409f8d83023aa54eb, type: 3}
+  m_Sprite: {fileID: 8892425983866510141, guid: fe284b775f99a8245aee90c67ca0ccfc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1374,7 +1374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2201372471356112002, guid: 0cd7777097f2dfb4986f8552a69a6b6d, type: 3}
+  m_Sprite: {fileID: -7887161439304530393, guid: 7c2b900b456f7a14a94d4ef7a0eda2e6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8344107478814399999, guid: 118471ede180d354f90d79c98f70ba4b, type: 3}
+  m_Sprite: {fileID: 7692836082253190390, guid: 51b517cfabf762b48ada59470d9c99d7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1524,7 +1524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -5709907077242518533, guid: 1e7039044bc6c0d4a94debcaaf4dbbd6, type: 3}
+  m_Sprite: {fileID: 8786680903089533457, guid: 589322062b893724ca55c6eedb4288b3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1905,8 +1905,8 @@ RectTransform:
   m_Children:
   - {fileID: 948623565}
   - {fileID: 1119440432}
-  - {fileID: 614022281}
   - {fileID: 1961278257}
+  - {fileID: 614022281}
   m_Father: {fileID: 1976580286}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1997,7 +1997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -2742887121370492310, guid: cc6d0d5031e3687408e27b94d0a439bb, type: 3}
+  m_Sprite: {fileID: -7538188677219436898, guid: d35bcff7da650e44383540c8e66a2488, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2771,7 +2771,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7704096461050404380, guid: dc224c2fc010fd944bf1824f67b2839e, type: 3}
+  m_Sprite: {fileID: 6390706545011704432, guid: fe01df552b133cc43b5f4d7d9c6b46c4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2815,8 +2815,8 @@ RectTransform:
   m_GameObject: {fileID: 1961278256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 26384309}
   - {fileID: 1989665378}

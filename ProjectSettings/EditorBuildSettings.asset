@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MoralChoiceScene.unity
     guid: f087f8e9fb56c244ca4c4083caa9d132
+  - enabled: 1
+    path: Assets/Scenes/ThankYouScene.unity
+    guid: 9c4c466893495da4eadbc4cd7ba804b3
+  - enabled: 1
+    path: Assets/Scenes/EndingScene.unity
+    guid: 095822f6f90778c409096fc77e01fb84
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

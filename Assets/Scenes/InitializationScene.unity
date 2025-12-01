@@ -404,6 +404,14 @@ MonoBehaviour:
     submittedTopicID: 
     submittedOpinionText: 
     didSeePositiveEnding: 0
+  finalVictimData:
+    opinionID: 
+    topicID: 
+    opinionText: 
+    authorName: 
+    authorAge: 0
+    authorCity: 
+  isPositiveEnding: 0
   disagreedOpinions: []
   globalAvatarList:
   - {fileID: 4995999362982356176, guid: a18f1c0f8a31edc4999894b0d3c74d95, type: 3}
@@ -426,6 +434,25 @@ MonoBehaviour:
   - {fileID: -6161994535546188686, guid: 0314323ca88c393418c766227bf147a7, type: 3}
   - {fileID: 5709497022203766284, guid: 7e05a383a410a6844826eb9ebe61a963, type: 3}
   - {fileID: -7088543985836164412, guid: f80887b818ebb104f81af1b447e8c77e, type: 3}
+  - {fileID: -2233528984267517183, guid: b9e786cd026eb84418109fdea3d00cde, type: 3}
+  - {fileID: 3564697273205097997, guid: a873b36596212f84abdfb83d24419aea, type: 3}
+  - {fileID: 3351464006667860129, guid: b41798f08fc94e448bb4608563d6998b, type: 3}
+  - {fileID: -3399448639024293293, guid: 737218fee4f84de49bb7891d043b588f, type: 3}
+  - {fileID: 7401919295954495340, guid: 806c23cf1467c904c8b9d41b1cc507e6, type: 3}
+  - {fileID: -6520712805326782537, guid: 8f25842bac692a74383dc87e6f5b13fd, type: 3}
+  - {fileID: -227542571040351678, guid: aa981d4a7f2a4094e9b2decfab290c7a, type: 3}
+  - {fileID: 6610878793022118411, guid: 35eb355c23106d8458291f51321be21e, type: 3}
+  - {fileID: 7346225718387624823, guid: d04ce207817865e4fb7dbb627b1f6504, type: 3}
+  - {fileID: -5412101729916916999, guid: de2f7e2b95549484cab274e784a11007, type: 3}
+  - {fileID: -8003457923924147428, guid: 66008df214caa8e469d8bc09ca704b74, type: 3}
+  - {fileID: -4857279857677890216, guid: 59119c99c011aa644ac20522100f3511, type: 3}
+  - {fileID: 3801174268147465335, guid: a978597e40f00b64f83a7107880e66ce, type: 3}
+  - {fileID: 4608605946848201474, guid: 5d3efb495c6ecc8429b0ed1a096fca95, type: 3}
+  - {fileID: 3625804977591722708, guid: bd505102adbb1da40bfc0accbc38e59e, type: 3}
+  - {fileID: 5247342749813245375, guid: 02bd64ad530f18c4499e4c9567efc1d8, type: 3}
+  - {fileID: -4169597632118959292, guid: 6202b75b35c99e44f92706141b1a6653, type: 3}
+  - {fileID: 5160587915744174643, guid: d92a847889395014aa03ba4dbcd6f0d4, type: 3}
+  - {fileID: 8061827124036326117, guid: 53b925e2498b60c4780868e8fe9875e2, type: 3}
   globalTopicDataList:
   - {fileID: 11400000, guid: 8c2b525a61ff53e48aae8793952dbbf4, type: 2}
   - {fileID: 11400000, guid: a04be866920f43d4685e242c11ce642a, type: 2}

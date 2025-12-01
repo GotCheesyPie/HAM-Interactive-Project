@@ -9,6 +9,11 @@ public class GameManager : MonoBehaviour
 
     // Data pemain untuk sesi ini 
     public PlayerData currentPlayer;
+    // Data opini yang dibuang di Flow 3 (untuk Ending A)
+    public Opinion finalVictimData; 
+    
+    // Status ending (True = B/Good, False = A/Bad)
+    public bool isPositiveEnding;
 
     // Menyimpan opini yang di-swipe left (tidak setuju)
     // untuk digunakan di Flow 3 

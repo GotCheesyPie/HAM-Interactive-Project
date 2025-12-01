@@ -153,9 +153,11 @@ public class MoralChoiceManager : MonoBehaviour
     {
         if (gameEnded) return;
         gameEnded = true;
-
-        Debug.Log("ENDING A: Membungkam Suara.");
-        // Simpan state ke GameManager jika perlu
+        if (GameManager.Instance.disagreedOpinions.Count > 0)
+        {
+            GameManager.Instance.finalVictimData = GameManager.Instance.disagreedOpinions[0];
+        }
+        GameManager.Instance.isPositiveEnding = false;
         SceneLoader.Instance.LoadEnding(false); // false = Bad/Normal Ending
     }
 

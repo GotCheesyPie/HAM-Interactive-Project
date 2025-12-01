@@ -100,7 +100,7 @@ public class DataInput : MonoBehaviour
                 avatarDisplay.sprite = selectedSprite;
                 // Pastikan aspect ratio gambar tidak gepeng
                 avatarDisplay.preserveAspect = true; 
-                avatarDisplay.SetNativeSize();
+                // avatarDisplay.SetNativeSize();
             }
         }
     }
