@@ -2,128 +2,143 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EndingManager : MonoBehaviour
 {
-    [Header("UI References")]
-    public TextMeshProUGUI mainTitleText; // Teks Besar
-    public TextMeshProUGUI humanizationText; // Teks Detail Penulis
-    public TextMeshProUGUI subMessageText; // "Mereka menulis ini..."
-    public Image flashOverlay; // Panel Merah untuk Flash
+    [Header("Panel References")]
+    public GameObject redScreenPanel;   // Panel Merah (Fase 1)
+    public GameObject listScreenPanel;  // Panel Hitam List (Fase 2)
+
+    [Header("List Screen UI")]
+    public Transform victimListContainer; // Tempat spawn text list
+    public GameObject victimTextPrefab;   // Prefab text "- [Nama]..."
+    public TextMeshProUGUI warningText;   // Teks merah "Mereka menulis ini..."
+    public GameObject buttonGroup;        // Grup tombol restart/exit
+
+    [Header("Buttons")]
     public Button restartButton;
+    public Button exitButton;
 
     [Header("Audio")]
     public AudioSource audioSource;
-    public AudioClip jarringSound; // Suara Ending A 
-    public AudioClip positiveSound; // Suara Ending B (untuk nanti)
+    public AudioClip jarringSound; // Suara kaget saat layar merah
 
     void Start()
     {
-        // Setup Awal: Sembunyikan semua teks & overlay
-        mainTitleText.alpha = 0;
-        humanizationText.alpha = 0;
-        subMessageText.alpha = 0;
-        flashOverlay.color = new Color(1, 0, 0, 0); // Merah transparan
-        restartButton.gameObject.SetActive(false);
+        // Setup Button Listeners
         restartButton.onClick.AddListener(OnRestartClicked);
+        exitButton.onClick.AddListener(OnExitClicked);
 
-        // Cek Ending mana yang harus dimainkan
+        // Pastikan kedua panel mati dulu di awal frame
+        redScreenPanel.SetActive(false);
+        listScreenPanel.SetActive(false);
+
+        // Cek Logic GameManager
         if (GameManager.Instance.isPositiveEnding)
         {
-            // PlayEndingB(); // (Belum diimplementasi)
+            // PlayEndingB(); // (Logika Good Ending - nanti)
         }
         else
         {
-            StartCoroutine(PlayEndingASequence());
+            // Mainkan Sequence Bad Ending (Merah -> List)
+            StartCoroutine(PlayEndingA());
         }
     }
 
-     // --- LOGIKA ENDING A  ---
-    IEnumerator PlayEndingASequence()
+    IEnumerator PlayEndingA()
     {
-         // 1. Siapkan Teks Sesuai GDD
-        mainTitleText.text = "SELAMAT, KAMU BARU SAJA MEMBUNGKAM HAK BERPENDAPAT MANUSIA LAINNYA";
+        // =================================================
+        // PHASE 1: THE ACCUSATION (LAYAR MERAH)
+        // =================================================
         
-         // Siapkan Data Humanisasi
-        Opinion victim = GameManager.Instance.finalVictimData;
-        if (victim != null)
-        {
-            humanizationText.text = $"Opini yang kamu buang ditulis oleh {victim.authorName}, umur {victim.authorAge}, dari {victim.authorCity}.";
-        }
-        else
-        {
-            humanizationText.text = "Opini yang kamu buang ditulis oleh seseorang yang ingin didengar.";
-        }
-
-        subMessageText.text = "\"Mereka menulis ini dengan harapan suaranya didengar.\"";
-
-        yield return new WaitForSeconds(0.5f);
-
-         // 2. AUDIO JARRING & SCREEN FLASH
+        // 1. Munculkan Layar Merah
+        redScreenPanel.SetActive(true);
+        
+        // 2. Mainkan Suara Kaget
         if (audioSource != null && jarringSound != null)
-        {
             audioSource.PlayOneShot(jarringSound);
+
+        // 3. Tunggu pemain membaca teks besar (misal 4 detik)
+        yield return new WaitForSeconds(4.0f);
+
+        // =================================================
+        // PHASE 2: THE CONSEQUENCE (LAYAR LIST HITAM)
+        // =================================================
+
+        // 1. Matikan Layar Merah, Nyalakan Layar List
+        redScreenPanel.SetActive(false);
+        listScreenPanel.SetActive(true);
+
+        // 2. Generate List Korban (Animasi satu per satu)
+        List<Opinion> victims = GameManager.Instance.disagreedOpinions;
+        
+        // Batasi tampilan (misal max 5 nama agar muat di layar)
+        int displayCount = Mathf.Min(victims.Count, 5); 
+
+        // Bersihkan container jika ada isinya
+        foreach (Transform child in victimListContainer) Destroy(child.gameObject);
+
+        // Loop untuk memunculkan teks satu per satu
+        for (int i = 0; i < displayCount; i++)
+        {
+            Opinion op = victims[i];
+            
+            // Spawn Text
+            GameObject textObj = Instantiate(victimTextPrefab, victimListContainer);
+            TextMeshProUGUI tmp = textObj.GetComponent<TextMeshProUGUI>();
+            
+            // Set Format Teks: "- [Nama], umur [X], dari [Kota]"
+            tmp.text = $"- {op.authorName}, umur {op.authorAge}, dari {op.authorCity}";
+            
+            // Jeda sedikit antar baris (efek mengetik/muncul)
+            yield return new WaitForSeconds(0.5f);
         }
 
-        // Efek Flash Merah (Cepat: Muncul -> Hilang)
-        float flashDuration = 0.2f;
-        float elapsed = 0;
-        
-        // Flash In
-        while (elapsed < flashDuration)
+        // (Opsional) Jika data kosong saat testing, munculkan dummy
+        if (displayCount == 0)
         {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(0, 0.8f, elapsed / flashDuration); // Max alpha 0.8
-            flashOverlay.color = new Color(0.8f, 0, 0, alpha); // Warna Merah Gelap
-            yield return null;
-        }
-        
-        // Flash Out
-        elapsed = 0;
-        while (elapsed < flashDuration * 2) // Fade out lebih pelan sedikit
-        {
-            elapsed += Time.deltaTime;
-            float alpha = Mathf.Lerp(0.8f, 0, elapsed / (flashDuration * 2));
-            flashOverlay.color = new Color(0.8f, 0, 0, alpha);
-            yield return null;
+            CreateDummyText("- Budi, umur 20, dari Jakarta"); yield return new WaitForSeconds(0.3f);
+            CreateDummyText("- Siti, umur 24, dari Bandung"); yield return new WaitForSeconds(0.3f);
+            CreateDummyText("- Andi, umur 19, dari Surabaya"); yield return new WaitForSeconds(0.3f);
         }
 
         yield return new WaitForSeconds(0.5f);
 
-         // 3. TEXT REVEAL ANIMATION 
-        // Munculkan teks utama perlahan
-        yield return StartCoroutine(FadeInText(mainTitleText, 2.0f));
-        
+        // 3. Tampilkan Teks Merah (Pesan Moral)
+        if (warningText != null)
+        {
+            warningText.gameObject.SetActive(true);
+            // Animasi Fade In sederhana (opsional)
+            warningText.alpha = 0;
+            float timer = 0;
+            while(timer < 1f)
+            {
+                timer += Time.deltaTime;
+                warningText.alpha = Mathf.Lerp(0, 1, timer);
+                yield return null;
+            }
+        }
+
         yield return new WaitForSeconds(1.0f);
 
-         // 4. HUMANIZATION DATA DISPLAY 
-        // Munculkan detail korban
-        yield return StartCoroutine(FadeInText(humanizationText, 1.5f));
-        
-        yield return new WaitForSeconds(1.0f);
-
-        // 5. SUB MESSAGE
-        yield return StartCoroutine(FadeInText(subMessageText, 1.5f));
-
-        yield return new WaitForSeconds(2.0f);
-        restartButton.gameObject.SetActive(true);
+        // 4. Tampilkan Tombol
+        buttonGroup.SetActive(true);
     }
 
-    // Helper untuk animasi Fade In Text
-    IEnumerator FadeInText(TextMeshProUGUI textUI, float duration)
+    void CreateDummyText(string content)
     {
-        float timer = 0;
-        while (timer < duration)
-        {
-            timer += Time.deltaTime;
-            textUI.alpha = Mathf.Lerp(0, 1, timer / duration);
-            yield return null;
-        }
-        textUI.alpha = 1;
+        GameObject textObj = Instantiate(victimTextPrefab, victimListContainer);
+        textObj.GetComponent<TextMeshProUGUI>().text = content;
     }
 
     void OnRestartClicked()
     {
         GameManager.Instance.ResetGame();
+    }
+
+    void OnExitClicked()
+    {
+        Application.Quit();
     }
 }
