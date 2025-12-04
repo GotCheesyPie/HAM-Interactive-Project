@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PersistenceManager : MonoBehaviour
 {
     public GameData GameData;
+    private IStorageHandler storageHandler;
 
     List<IPersistable> Subscribers = new();
 
@@ -26,26 +27,33 @@ public class PersistenceManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        SceneManager.sceneUnloaded += WrapUpLastSceneData;
+        SceneManager.sceneUnloaded += PullSceneData;
         SceneManager.activeSceneChanged += RefreshSubscriberList;
     }
 
+    void Start()
+    {
+        storageHandler = gameObject.AddComponent<JSONStorageHandler>();
+    }
+
+    [ContextMenu("Load Game")]
     public void TriggerLoad()
     {
         LoadStarted?.Invoke();
 
+        GameData = storageHandler.Read("save");
         PushToPersistables();
-        // TODO add storage read
 
         LoadEnded?.Invoke();
     }
 
+    [ContextMenu("Save Game")]
     public void TriggerSave()
     {
         SaveStarted?.Invoke();
 
         PullFromPersistables();
-        // TODO add storage write
+        storageHandler.Write(GameData);
 
         SaveEnded?.Invoke();
     }
@@ -85,7 +93,7 @@ public class PersistenceManager : MonoBehaviour
         FindAllPersistableScripts();
     }
 
-    void WrapUpLastSceneData(Scene _)
+    void PullSceneData(Scene _)
     {
         PullFromPersistables();
     }
