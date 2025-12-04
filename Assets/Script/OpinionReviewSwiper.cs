@@ -16,28 +16,30 @@ public class OpinionReviewSwiper : MonoBehaviour, IPersistable
     // --- Card Stack System ---
     private List<Opinion> opinionsToReview;
     private int currentOpinionIndex;
-    private Dictionary<int, bool> choices; // key = index list, value = isSetuju
+    private Dictionary<int, bool> choices = new(); // key = index list, value = isSetuju
     private CountdownSpriteSwapper counterSprite;
 
     void Start()
     {
         loadingPanel.SetActive(true);
 
-        // 1. Bersihkan list
-        GameManager.Instance.disagreedOpinions.Clear(); //FIXME add null check for testing scene
-
-        // 2. Ambil topik
-        string currentTopicID = GameManager.Instance.currentPlayer.submittedTopicID;
-
-        // 3. Panggil Database
-        DatabaseManager.Instance.GetOpinionsForTopic(
-            currentTopicID,
-            OnOpinionsReceived, // Sukses
-            OnError             // Gagal
-        );
-
         // 4. Set Counter Sprite
         counterSprite = GetComponent<CountdownSpriteSwapper>();
+        if (GameManager.Instance != null && DatabaseManager.Instance != null)
+        {
+            // 1. Bersihkan list
+            GameManager.Instance.disagreedOpinions.Clear();
+            // 2. Ambil topik
+            string currentTopicID = GameManager.Instance.currentPlayer.submittedTopicID;
+            // 3. Panggil Database
+            DatabaseManager.Instance.GetOpinionsForTopic(
+                currentTopicID,
+                OnOpinionsReceived, // Sukses
+                OnError             // Gagal
+            );
+        }
+
+
     }
 
     void OnOpinionsReceived(List<Opinion> opinions)
