@@ -4,7 +4,7 @@ using TMPro;
 using System.Collections.Generic;
 
 // Ini adalah Manager baru untuk Scene Review
-public class OpinionReviewSwiper : MonoBehaviour
+public class OpinionReviewSwiper : MonoBehaviour, IPersistable
 {
     [Header("System References")]
     public GameObject cardPrefab; // Prefab OpinionCard Anda
@@ -16,6 +16,7 @@ public class OpinionReviewSwiper : MonoBehaviour
     // --- Card Stack System ---
     private List<Opinion> opinionsToReview;
     private int currentOpinionIndex;
+    private Dictionary<int, bool> choices; // key = index list, value = isSetuju
     private CountdownSpriteSwapper counterSprite;
 
     void Start()
@@ -93,11 +94,13 @@ public class OpinionReviewSwiper : MonoBehaviour
         if (swipedRight)
         {
             Debug.Log($"Setuju dengan: {swipedOpinion.opinionText}");
+            choices.Add(currentOpinionIndex, true);
         }
         else
         {
             Debug.Log($"Tidak setuju dengan: {swipedOpinion.opinionText}");
             GameManager.Instance.disagreedOpinions.Add(swipedOpinion);
+            choices.Add(currentOpinionIndex, false);
         }
 
         // Lanjut ke kartu berikutnya
@@ -110,5 +113,19 @@ public class OpinionReviewSwiper : MonoBehaviour
         // Selesai! Pindah ke Flow 3
         Debug.Log("Selesai me-review 10 opini. Pindah ke Moral Choice.");
         SceneLoader.Instance.LoadMoralChoice();
+    }
+
+    public void Save(ref GameData data)
+    {
+        data.Session.CurrentOpinionIndex = currentOpinionIndex;
+        data.Session.OpinionsToReview = new(opinionsToReview);
+        data.Session.Choices = new(choices);
+    }
+
+    public void Load(GameData data)
+    {
+        currentOpinionIndex = data.Session.CurrentOpinionIndex;
+        opinionsToReview = new(opinionsToReview);
+        choices = new(data.Session.Choices);
     }
 }

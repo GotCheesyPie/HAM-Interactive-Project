@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement; // Wajib ada
 
 // Singleton untuk mengontrol perpindahan scene
-public class SceneLoader : MonoBehaviour
+public class SceneLoader : MonoBehaviour, IPersistable
 {
     public static SceneLoader Instance { get; private set; }
 
@@ -77,5 +77,15 @@ public class SceneLoader : MonoBehaviour
     public void LoadThankYouScreen()
     {
         SceneManager.LoadScene(thankYouScene);
+    }
+
+    public void Save(ref GameData data)
+    {
+        data.CurrentScene = SceneManager.GetActiveScene().name;
+    }
+
+    public void Load(GameData data)
+    {
+        SceneManager.LoadScene(data.CurrentScene);
     }
 }

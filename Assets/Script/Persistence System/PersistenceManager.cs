@@ -26,6 +26,7 @@ public class PersistenceManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        SceneManager.sceneUnloaded += WrapUpLastSceneData;
         SceneManager.activeSceneChanged += RefreshSubscriberList;
     }
 
@@ -34,8 +35,27 @@ public class PersistenceManager : MonoBehaviour
         LoadStarted?.Invoke();
 
         PushToPersistables();
+        // TODO add storage read
 
         LoadEnded?.Invoke();
+    }
+
+    public void TriggerSave()
+    {
+        SaveStarted?.Invoke();
+
+        PullFromPersistables();
+        // TODO add storage write
+
+        SaveEnded?.Invoke();
+    }
+
+    private void PullFromPersistables()
+    {
+        foreach (var item in Subscribers)
+        {
+            item.Save(ref GameData);
+        }
     }
 
     private void PushToPersistables()
@@ -44,18 +64,6 @@ public class PersistenceManager : MonoBehaviour
         {
             item.Load(GameData);
         }
-    }
-
-    public void TriggerSave()
-    {
-        SaveStarted?.Invoke();
-
-        foreach (var item in Subscribers)
-        {
-            item.Save(ref GameData);
-        }
-
-        SaveEnded?.Invoke();
     }
 
     public void AddSubcriber(IPersistable persistable)
@@ -75,5 +83,10 @@ public class PersistenceManager : MonoBehaviour
     void RefreshSubscriberList(Scene _, Scene __)
     {
         FindAllPersistableScripts();
+    }
+
+    void WrapUpLastSceneData(Scene _)
+    {
+        PullFromPersistables();
     }
 }

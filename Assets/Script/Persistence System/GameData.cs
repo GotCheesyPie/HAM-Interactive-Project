@@ -14,5 +14,7 @@ public class GameData
     public List<Opinion> disagreedOpinions;
 
     public SessionData Session;
+
+    public string CurrentScene;
     // TODO add more data types here, e.g. statistics
 }

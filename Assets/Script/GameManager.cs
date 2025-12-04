@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour, IPersistable
     // untuk digunakan di Flow 3 
     public List<Opinion> disagreedOpinions = new List<Opinion>();
 
-    public SessionData session;
-
     [Header("Global Assets")]
     public List<Sprite> globalAvatarList;
     public List<TopicData> globalTopicDataList;
@@ -82,7 +80,6 @@ public class GameManager : MonoBehaviour, IPersistable
     public void ResetGame()
     {
         InitializePlayer();
-        session.CurrentFlow = FlowStage.Prologue;
     }
 
     public void Save(ref GameData data)
@@ -115,12 +112,38 @@ public class GameManager : MonoBehaviour, IPersistable
         data.isPositiveEnding = isPositiveEnding;
 
         data.disagreedOpinions = new(disagreedOpinions);
-
-        session.Save(ref data);
     }
 
     public void Load(GameData data)
     {
-        session.Load(data);
+
+        disagreedOpinions = new(data.disagreedOpinions);
+
+        isPositiveEnding = data.isPositiveEnding;
+
+        finalVictimData = new()
+        {
+            opinionID = data.finalVictimData.opinionID,
+            topicID = data.finalVictimData.topicID,
+            opinionText = data.finalVictimData.opinionText,
+
+            // Metadata penulis 
+            authorName = data.finalVictimData.authorName,
+            authorAge = data.finalVictimData.authorAge,
+            authorCity = data.finalVictimData.authorCity
+        };
+
+        currentPlayer = new()
+        {
+            playerName = data.playerData.playerName,
+            playerAge = data.playerData.playerAge,
+            playerCity = data.playerData.playerCity,
+            selectedAvatarID = data.playerData.selectedAvatarID,
+
+            // Opini yang baru saja ditulis pemain
+            submittedTopicID = data.playerData.submittedTopicID,
+            submittedOpinionText = data.playerData.submittedOpinionText,
+            didSeePositiveEnding = data.playerData.didSeePositiveEnding
+        };
     }
 }

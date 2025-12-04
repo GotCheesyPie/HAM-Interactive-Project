@@ -215,6 +215,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 512bcbad952188a49bba82e45b28c058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1750288405
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750288407}
+  - component: {fileID: 1750288406}
+  m_Layer: 0
+  m_Name: PersistenceManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1750288406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750288405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c13fe6df14b7a4092b3480020776c96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameData:
+    playerData:
+      playerName: 
+      playerAge: 0
+      playerCity: 
+      selectedAvatarID: 0
+      submittedTopicID: 
+      submittedOpinionText: 
+      didSeePositiveEnding: 0
+    finalVictimData:
+      opinionID: 
+      topicID: 
+      opinionText: 
+      authorName: 
+      authorAge: 0
+      authorCity: 
+    isPositiveEnding: 0
+    disagreedOpinions: []
+    Session:
+      CurrentFlow: 0
+      CurrentReviewIndex: 0
+    CurrentScene: 
+--- !u!4 &1750288407
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750288405}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 772.09094, y: 2387.3972, z: -2.5498412}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1770643403
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,6 +479,9 @@ MonoBehaviour:
     authorCity: 
   isPositiveEnding: 0
   disagreedOpinions: []
+  session:
+    CurrentFlow: 0
+    CurrentReviewIndex: 0
   globalAvatarList:
   - {fileID: 4995999362982356176, guid: a18f1c0f8a31edc4999894b0d3c74d95, type: 3}
   - {fileID: 6520998148731647015, guid: f5dda84431f7bf8469c4b5864eafe194, type: 3}
@@ -472,3 +541,4 @@ SceneRoots:
   - {fileID: 1904504101}
   - {fileID: 447572014}
   - {fileID: 524920484}
+  - {fileID: 1750288407}
