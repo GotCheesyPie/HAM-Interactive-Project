@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Class to structure in-game data storage, used to group every save/loadable game components
@@ -7,7 +8,11 @@ using System;
 [Serializable]
 public class GameData
 {
-    public PlayerIdData Player; //TODO coordinate with PlayerData in TopicData.cs
+    public PlayerData playerData;
+    public Opinion finalVictimData;
+    public bool isPositiveEnding;
+    public List<Opinion> disagreedOpinions;
+
     public SessionData Session;
     // TODO add more data types here, e.g. statistics
 }

@@ -7,24 +7,24 @@ public class SessionData : IPersistable
 {
     public FlowStage CurrentFlow;
 
-    public List<Opinion> OpinionsToReview = new(); // Query 10 opinion dari database
+    // public List<Opinion> OpinionsToReview = new(); // Query 10 opinion dari database
     public int CurrentReviewIndex = 0;
-    public Dictionary<int, bool> Choices = new(); // Maybe better as Disctionary<int, bool> ? (int index from list)
+    public Dictionary<int, bool> Choices = new();
 
-    public Opinion OpinionSubmission;
+    // public Opinion OpinionSubmission;
 
     public void Load(GameData data)
     {
         CurrentFlow = data.Session.CurrentFlow;
-        OpinionsToReview = data.Session.OpinionsToReview;
         CurrentReviewIndex = data.Session.CurrentReviewIndex;
         Choices = data.Session.Choices;
-        OpinionSubmission = data.Session.OpinionSubmission;
     }
 
     public void Save(ref GameData data)
     {
-        data.Session = this;
+        data.Session.CurrentFlow = CurrentFlow;
+        data.Session.CurrentReviewIndex = CurrentReviewIndex;
+        data.Session.Choices = Choices;
     }
 
     // Request kak Kiki: Track topic yang dipilih
@@ -33,9 +33,9 @@ public class SessionData : IPersistable
 }
 
 [Serializable]
-public enum FlowStage
+public enum FlowStage // 3 flow
 {
-    Prologue,
-    ReviewOpinions,
-    MoralChoice
+    Prologue, // aka isi data diri + buat opini
+    ReviewOpinions, // aka flow swipe kiri/kanan
+    MoralChoice // aka buang opini
 }
