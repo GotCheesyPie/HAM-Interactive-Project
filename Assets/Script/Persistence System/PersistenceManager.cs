@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PersistenceManager : MonoBehaviour
 {
@@ -25,24 +26,26 @@ public class PersistenceManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-    }
-
-    void Start()
-    {
-        FindAllPersistableScripts();
+        SceneManager.activeSceneChanged += RefreshSubscriberList;
     }
 
     public void TriggerLoad()
     {
         LoadStarted?.Invoke();
 
+        PushToPersistables();
+
+        LoadEnded?.Invoke();
+    }
+
+    private void PushToPersistables()
+    {
         foreach (var item in Subscribers)
         {
             item.Load(GameData);
         }
-
-        LoadEnded?.Invoke();
     }
+
     public void TriggerSave()
     {
         SaveStarted?.Invoke();
@@ -65,5 +68,12 @@ public class PersistenceManager : MonoBehaviour
         // Finds every MonoBehaviour script that also implements IPersistable
         IEnumerable<IPersistable> persistables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IPersistable>();
         Subscribers = new List<IPersistable>(persistables);
+
+        Debug.Log($"[{GetType().Name}] Found {Subscribers.Count} persistables");
+    }
+
+    void RefreshSubscriberList(Scene _, Scene __)
+    {
+        FindAllPersistableScripts();
     }
 }
