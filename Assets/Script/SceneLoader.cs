@@ -8,6 +8,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
 
     // --- Nama-nama Scene Anda (harus sama dengan di Build Settings) ---
     [Header("Scene Names")]
+    public string initializationScene = "InitializationScene";
     public string characterCreationScene = "CharacterCreationScene";
     public string dataInputScene = "DataInputScene";
     public string topicSelectScene = "TopicSelectionScene";
@@ -16,6 +17,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
     public string moralChoiceScene = "MoralChoiceScene"; // Flow 3 
     public string endingScene = "EndingScene";
     public string thankYouScene = "ThankYouScene";
+    public string creditScene = "CreditScene";
 
     void Awake()
     {
@@ -65,13 +67,10 @@ public class SceneLoader : MonoBehaviour, IPersistable
         SceneManager.LoadScene(moralChoiceScene);
     }
 
-    // Dipanggil jika pemain memilih "Tidak" 
-    // atau setelah Flow 3
     public void LoadEnding(bool isPositiveEnding)
     {
-        // Kita bisa gunakan PlayerPrefs atau GameManager 
-        // untuk memberitahu scene ending mana yang harus ditampilkan
         GameManager.Instance.currentPlayer.didSeePositiveEnding = isPositiveEnding;
+        GameManager.Instance.isPositiveEnding = isPositiveEnding;
         SceneManager.LoadScene(endingScene);
     }
     public void LoadThankYouScreen()
@@ -87,5 +86,15 @@ public class SceneLoader : MonoBehaviour, IPersistable
     public void Load(GameData data)
     {
         SceneManager.LoadScene(data.CurrentScene);
+    }
+
+    public void LoadCreditScene()
+    {
+        SceneManager.LoadScene(creditScene);
+    }
+
+    public void LoadInitialiationScene()
+    {
+        SceneManager.LoadScene(initializationScene);
     }
 }

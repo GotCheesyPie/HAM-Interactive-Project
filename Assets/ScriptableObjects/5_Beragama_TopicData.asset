@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d4b9c1662a61a44993b910df07b9f8, type: 3}
   m_Name: 5_Beragama_TopicData
   m_EditorClassIdentifier: 
-  topicID: hak_beragama
+  topicID: hak_agama
   topicName: Hak Beragama dan Berkeyakinan
   prompt: 'Kasus Etnis Rohingya: Etnis minoritas Muslim Rohingya di Myanmar mengalami
     persekusi, pembakaran rumah, dan pembunuhan oleh militer karena identitas agama

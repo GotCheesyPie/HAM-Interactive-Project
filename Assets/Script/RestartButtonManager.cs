@@ -6,6 +6,7 @@ public class RestartButtonManager : MonoBehaviour
     public Button restartButton;
     void Start()
     {
+        restartButton.onClick.RemoveAllListeners();
         restartButton.onClick.AddListener(OnRestartClicked);
     }
     

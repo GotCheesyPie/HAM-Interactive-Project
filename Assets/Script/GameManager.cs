@@ -59,7 +59,6 @@ public class GameManager : MonoBehaviour, IPersistable
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // Kunci agar data tidak hilang
-            InitializePlayer();
         }
         else
         {
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour, IPersistable
         }
     }
 
-    void InitializePlayer()
+    public void InitializePlayer()
     {
         currentPlayer = new PlayerData();
         disagreedOpinions.Clear();
@@ -79,7 +78,12 @@ public class GameManager : MonoBehaviour, IPersistable
     // Fungsi reset jika pemain ingin "Main Lagi" 
     public void ResetGame()
     {
-        InitializePlayer();
+        SceneLoader.Instance.LoadInitialiationScene();
+    }
+
+    public void OnExit()
+    {
+        Application.Quit();
     }
 
     public void Save(ref GameData data)

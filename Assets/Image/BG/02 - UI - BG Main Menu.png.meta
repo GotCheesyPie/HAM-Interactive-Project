@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1e80ec3f78671f64383ff476a0278237
+guid: ebc7c680bbbe2f541a32b6d4cc9d1d46
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8069772455928562297
-    second: 02 - UI - 09_Ending Screen A - 1_FULL Portrait_0
+      213: -1846941468491572675
+    second: 02 - UI - BG Main Menu_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 02 - UI - 09_Ending Screen A - 1_FULL Portrait_0
+      name: 02 - UI - BG Main Menu_0
       rect:
         serializedVersion: 2
         x: 0
@@ -121,37 +121,15 @@ TextureImporter:
         width: 1080
         height: 1920
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9728add0b479dff60800000000000000
-      internalID: 8069772455928562297
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: 02 - UI - 09_Ending Screen A - 1_FULL Portrait_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 681
-        width: 1080
-        height: 650
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9bc07d5259da9254c94cfe2c8698cafe
-      internalID: -268519084
+      spriteID: d3a1f9915885e56e0800000000000000
+      internalID: -1846941468491572675
       vertices: []
       indices: 
       edges: []
@@ -160,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 76e64de6825f0054fa28d6e677544356
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -170,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      02 - UI - 09_Ending Screen A - 1_FULL Portrait_0: 8069772455928562297
-      02 - UI - 09_Ending Screen A - 1_FULL Portrait_1: -268519084
+      02 - UI - BG Main Menu_0: -1846941468491572675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

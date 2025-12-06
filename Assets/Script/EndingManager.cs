@@ -6,139 +6,167 @@ using System.Collections.Generic;
 
 public class EndingManager : MonoBehaviour
 {
-    [Header("Panel References")]
-    public GameObject redScreenPanel;   // Panel Merah (Fase 1)
-    public GameObject listScreenPanel;  // Panel Hitam List (Fase 2)
+    [Header("--- ENDING A: BAD (Accusation Phase) ---")]
+    public GameObject redScreenPanel;   // Panel Merah "SELAMAT KAMU BARU SAJA..."
 
-    [Header("List Screen UI")]
-    public Transform victimListContainer; // Tempat spawn text list
+    [Header("--- ENDING A: BAD (Consequence Phase) ---")]
+    public GameObject listScreenPanel;  // Panel Hitam List Korban
+    public Transform victimListContainer; // Container dengan Vertical Layout Group
     public GameObject victimTextPrefab;   // Prefab text "- [Nama]..."
-    public TextMeshProUGUI warningText;   // Teks merah "Mereka menulis ini..."
-    public GameObject buttonGroup;        // Grup tombol restart/exit
+    public TextMeshProUGUI warningText;   // Teks Merah "Mereka menulis ini..."
+    public GameObject buttonGroup;        // Grup tombol (Restart & Exit)
 
-    [Header("Buttons")]
-    public Button restartButton;
-    public Button exitButton;
+    [Header("--- ENDING B: GOOD ---")]
+    public GameObject endingBPanel;     // Panel "TERIMA KASIH..."
 
-    [Header("Audio")]
+    [Header("--- BUTTONS ---")]
+    public Button restartButton; // Tombol Orange (Icon Refresh)
+    public Button exitButton;    // Tombol Merah (Icon X)
+
+    [Header("--- AUDIO ---")]
     public AudioSource audioSource;
-    public AudioClip jarringSound; // Suara kaget saat layar merah
+    public AudioClip jarringSound;  // Suara Kaget (Ending A)
+    public AudioClip positiveSound; // Suara Tenang (Ending B)
 
     void Start()
     {
-        // Setup Button Listeners
+        // 1. Matikan semua panel di awal agar bersih
+        if(redScreenPanel) redScreenPanel.SetActive(false);
+        if(listScreenPanel) listScreenPanel.SetActive(false);
+        if(endingBPanel) endingBPanel.SetActive(false);
+        if(buttonGroup) buttonGroup.SetActive(false);
+
+        // 2. Setup Tombol
         restartButton.onClick.AddListener(OnRestartClicked);
-        exitButton.onClick.AddListener(OnExitClicked);
+        exitButton.onClick.AddListener(OnExitToCreditClicked);
 
-        // Pastikan kedua panel mati dulu di awal frame
-        redScreenPanel.SetActive(false);
-        listScreenPanel.SetActive(false);
-
-        // Cek Logic GameManager
-        if (GameManager.Instance.isPositiveEnding)
+        // 3. Cek Status Ending dari GameManager
+        // (Pastikan GameManager ada, jika testing langsung di scene ini, default ke Bad Ending)
+        bool isGoodEnding = false;
+        if (GameManager.Instance != null) 
         {
-            // PlayEndingB(); // (Logika Good Ending - nanti)
+            isGoodEnding = GameManager.Instance.isPositiveEnding;
+        }
+
+        // 4. Jalankan Sequence yang sesuai
+        if (isGoodEnding)
+        {
+            StartCoroutine(PlayEndingBSequence());
         }
         else
         {
-            // Mainkan Sequence Bad Ending (Merah -> List)
-            StartCoroutine(PlayEndingA());
+            StartCoroutine(PlayEndingASequence());
         }
     }
 
-    IEnumerator PlayEndingA()
+    // =================================================================
+    // LOGIKA ENDING A (BAD): Merah -> List Nama -> Tombol
+    // =================================================================
+    IEnumerator PlayEndingASequence()
     {
-        // =================================================
-        // PHASE 1: THE ACCUSATION (LAYAR MERAH)
-        // =================================================
-        
-        // 1. Munculkan Layar Merah
+        // PHASE 1: LAYAR MERAH
         redScreenPanel.SetActive(true);
         
-        // 2. Mainkan Suara Kaget
-        if (audioSource != null && jarringSound != null)
+        if (audioSource && jarringSound) 
             audioSource.PlayOneShot(jarringSound);
 
-        // 3. Tunggu pemain membaca teks besar (misal 4 detik)
+        // Tahan selama 4 detik untuk efek dramatis [cite: 99-101]
         yield return new WaitForSeconds(4.0f);
 
-        // =================================================
-        // PHASE 2: THE CONSEQUENCE (LAYAR LIST HITAM)
-        // =================================================
-
-        // 1. Matikan Layar Merah, Nyalakan Layar List
+        // PHASE 2: LAYAR LIST HITAM
         redScreenPanel.SetActive(false);
         listScreenPanel.SetActive(true);
 
-        // 2. Generate List Korban (Animasi satu per satu)
-        List<Opinion> victims = GameManager.Instance.disagreedOpinions;
-        
-        // Batasi tampilan (misal max 5 nama agar muat di layar)
-        int displayCount = Mathf.Min(victims.Count, 5); 
+        // Ambil data korban dari GameManager
+        List<Opinion> victims = new List<Opinion>();
+        if (GameManager.Instance != null)
+        {
+            victims = GameManager.Instance.disagreedOpinions;
+        }
 
-        // Bersihkan container jika ada isinya
+        // Batasi tampilan maksimal 5 nama agar UI rapi
+        int displayCount = Mathf.Min(victims.Count, 5);
+
+        // Bersihkan container (hapus dummy text editor jika ada)
         foreach (Transform child in victimListContainer) Destroy(child.gameObject);
 
-        // Loop untuk memunculkan teks satu per satu
+        // Loop spawn nama satu per satu [cite: 102-103]
         for (int i = 0; i < displayCount; i++)
         {
             Opinion op = victims[i];
             
-            // Spawn Text
             GameObject textObj = Instantiate(victimTextPrefab, victimListContainer);
             TextMeshProUGUI tmp = textObj.GetComponent<TextMeshProUGUI>();
             
-            // Set Format Teks: "- [Nama], umur [X], dari [Kota]"
+            // Format teks: "- Nama, Umur, dari Kota"
             tmp.text = $"- {op.authorName}, umur {op.authorAge}, dari {op.authorCity}";
             
-            // Jeda sedikit antar baris (efek mengetik/muncul)
+            // Jeda 0.5 detik antar nama
             yield return new WaitForSeconds(0.5f);
         }
 
-        // (Opsional) Jika data kosong saat testing, munculkan dummy
+        // (Opsional) Dummy Data jika list kosong saat testing
         if (displayCount == 0)
         {
-            CreateDummyText("- Budi, umur 20, dari Jakarta"); yield return new WaitForSeconds(0.3f);
-            CreateDummyText("- Siti, umur 24, dari Bandung"); yield return new WaitForSeconds(0.3f);
-            CreateDummyText("- Andi, umur 19, dari Surabaya"); yield return new WaitForSeconds(0.3f);
+            SpawnDummyText("- Budi, umur 20, dari Jakarta"); yield return new WaitForSeconds(0.3f);
+            SpawnDummyText("- Siti, umur 24, dari Bandung"); yield return new WaitForSeconds(0.3f);
+            SpawnDummyText("- Andi, umur 19, dari Surabaya"); yield return new WaitForSeconds(0.3f);
         }
 
         yield return new WaitForSeconds(0.5f);
 
-        // 3. Tampilkan Teks Merah (Pesan Moral)
-        if (warningText != null)
+        // Tampilkan Teks Peringatan Merah
+        if (warningText)
         {
+            warningText.text = "Mereka menulis ini\ndengan harapan suaranya didengar.";
             warningText.gameObject.SetActive(true);
-            // Animasi Fade In sederhana (opsional)
-            warningText.alpha = 0;
-            float timer = 0;
-            while(timer < 1f)
-            {
-                timer += Time.deltaTime;
-                warningText.alpha = Mathf.Lerp(0, 1, timer);
-                yield return null;
-            }
         }
 
         yield return new WaitForSeconds(1.0f);
 
-        // 4. Tampilkan Tombol
+        // Tampilkan Tombol (Restart & X)
         buttonGroup.SetActive(true);
     }
 
-    void CreateDummyText(string content)
+    // Helper untuk dummy text
+    void SpawnDummyText(string text)
     {
         GameObject textObj = Instantiate(victimTextPrefab, victimListContainer);
-        textObj.GetComponent<TextMeshProUGUI>().text = content;
+        textObj.GetComponent<TextMeshProUGUI>().text = text;
     }
 
+
+    // =================================================================
+    // LOGIKA ENDING B (GOOD): Terima Kasih -> Auto Credit
+    // =================================================================
+    IEnumerator PlayEndingBSequence()
+    {
+        // Tampilkan Panel Terima Kasih [cite: 107-108]
+        endingBPanel.SetActive(true);
+
+        if (audioSource && positiveSound)
+            audioSource.PlayOneShot(positiveSound);
+
+        // Biarkan pemain membaca selama 5 detik
+        yield return new WaitForSeconds(5.0f);
+
+        // Pindah otomatis ke Credit Scene
+        SceneLoader.Instance.LoadCreditScene();
+    }
+
+
+    // =================================================================
+    // FUNGSI TOMBOL
+    // =================================================================
     void OnRestartClicked()
     {
+        // Reset Game Total
         GameManager.Instance.ResetGame();
     }
 
-    void OnExitClicked()
+    void OnExitToCreditClicked()
     {
-        Application.Quit();
+        // Tombol X mengarah ke Credit Scene (bukan Quit)
+        SceneLoader.Instance.LoadCreditScene();
     }
 }
