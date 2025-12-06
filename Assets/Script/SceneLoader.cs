@@ -71,6 +71,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
     {
         GameManager.Instance.currentPlayer.didSeePositiveEnding = isPositiveEnding;
         GameManager.Instance.isPositiveEnding = isPositiveEnding;
+        GameManager.Instance.isPositiveEnding = isPositiveEnding;
         SceneManager.LoadScene(endingScene);
     }
     public void LoadThankYouScreen()
@@ -93,7 +94,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
         SceneManager.LoadScene(creditScene);
     }
 
-    public void LoadInitialiationScene()
+    public void LoadInitializationScene()
     {
         SceneManager.LoadScene(initializationScene);
     }

@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour, IPersistable
     // Fungsi reset jika pemain ingin "Main Lagi" 
     public void ResetGame()
     {
-        SceneLoader.Instance.LoadInitialiationScene();
+        SceneLoader.Instance.LoadInitializationScene();
     }
 
     public void OnExit()

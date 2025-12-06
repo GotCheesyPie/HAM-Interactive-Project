@@ -1214,8 +1214,8 @@ MonoBehaviour:
     isPositiveEnding: 0
     disagreedOpinions: []
     Session:
-      CurrentFlow: 0
-      CurrentReviewIndex: 0
+      OpinionsToReview: []
+      CurrentOpinionIndex: 0
     CurrentScene: 
 --- !u!4 &1750288407
 Transform:
@@ -1226,7 +1226,7 @@ Transform:
   m_GameObject: {fileID: 1750288405}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 772.09094, y: 2387.3972, z: -2.5498412}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1430,9 +1430,6 @@ MonoBehaviour:
     authorCity: 
   isPositiveEnding: 0
   disagreedOpinions: []
-  session:
-    CurrentFlow: 0
-    CurrentReviewIndex: 0
   globalAvatarList:
   - {fileID: 4995999362982356176, guid: a18f1c0f8a31edc4999894b0d3c74d95, type: 3}
   - {fileID: 6520998148731647015, guid: f5dda84431f7bf8469c4b5864eafe194, type: 3}
