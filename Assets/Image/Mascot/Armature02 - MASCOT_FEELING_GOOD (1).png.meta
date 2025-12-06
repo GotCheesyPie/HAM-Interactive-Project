@@ -1,0 +1,1456 @@
+fileFormatVersion: 2
+guid: f366bdf5612c0014486cd08a4903c2cb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3749989748115233509
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_0
+  - first:
+      213: 8670860677082262191
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_1
+  - first:
+      213: 5400361632671154598
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_2
+  - first:
+      213: -6260752361544494853
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_3
+  - first:
+      213: -2957146034256981647
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_4
+  - first:
+      213: -5705920267244220471
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_5
+  - first:
+      213: -7594064810816500720
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_6
+  - first:
+      213: 9138938535149494393
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_7
+  - first:
+      213: 437182077749980897
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_8
+  - first:
+      213: 8113779479251364056
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_9
+  - first:
+      213: 7600148094866458675
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_10
+  - first:
+      213: 1174597844479587910
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_11
+  - first:
+      213: -3017091707942182982
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_12
+  - first:
+      213: -9076449225919416180
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_13
+  - first:
+      213: -1664158798882317766
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_14
+  - first:
+      213: -6152916937662280936
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_15
+  - first:
+      213: -818575645108720985
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_16
+  - first:
+      213: -2487907030968372951
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_17
+  - first:
+      213: -7954148345661263853
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_18
+  - first:
+      213: -946271117120477428
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_19
+  - first:
+      213: 1433861665700081074
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_20
+  - first:
+      213: -1826095843668858314
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_21
+  - first:
+      213: 6873693484996791171
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_22
+  - first:
+      213: -2242216751419138562
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_23
+  - first:
+      213: 3309340486906407834
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_24
+  - first:
+      213: -8535510541306929214
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_25
+  - first:
+      213: -1857828801390659117
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_26
+  - first:
+      213: 906455684085840353
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_27
+  - first:
+      213: -8344130908012047463
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_28
+  - first:
+      213: -5705998545968364716
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_29
+  - first:
+      213: 3920130745239478689
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_30
+  - first:
+      213: 484320305806091973
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_31
+  - first:
+      213: 277627631987354365
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_32
+  - first:
+      213: -8595844319471005400
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_33
+  - first:
+      213: -2940897552822666533
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_34
+  - first:
+      213: -2721266012529122833
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_35
+  - first:
+      213: -4285565897339335885
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_36
+  - first:
+      213: -6637143021472656446
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_37
+  - first:
+      213: 8370381580790845477
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_38
+  - first:
+      213: 2829158466029618704
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_39
+  - first:
+      213: -648370668234049413
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_40
+  - first:
+      213: -3757294708218464565
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_41
+  - first:
+      213: -2741768879208129521
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_42
+  - first:
+      213: 8104811201128352337
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_43
+  - first:
+      213: -7413090214655159599
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_44
+  - first:
+      213: 3217290008654509958
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_45
+  - first:
+      213: 3179993004100136704
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_46
+  - first:
+      213: -7497271874963327776
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_47
+  - first:
+      213: 1553805809227159570
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_48
+  - first:
+      213: 8780862542474131629
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_49
+  - first:
+      213: 1643229114190693374
+    second: Armature02 - MASCOT_FEELING_GOOD (1)_50
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 4830
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b152c30413c55fbc0800000000000000
+      internalID: -3749989748115233509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_1
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 4830
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa246a78d5155870800000000000000
+      internalID: 8670860677082262191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 4830
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a14306ea40f1fa40800000000000000
+      internalID: 5400361632671154598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_3
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 4830
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf0d377e5e65d19a0800000000000000
+      internalID: -6260752361544494853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_4
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 4830
+        width: 555
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1715827795b16f6d0800000000000000
+      internalID: -2957146034256981647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_5
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 4347
+        width: 555
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cfc43a8fbf70d0b0800000000000000
+      internalID: -5705920267244220471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_6
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 4347
+        width: 555
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c0df52a467c9690800000000000000
+      internalID: -7594064810816500720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_7
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 4347
+        width: 555
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 970e6b37d2804de70800000000000000
+      internalID: 9138938535149494393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_8
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 4347
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ee647e88ce211600800000000000000
+      internalID: 437182077749980897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_9
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 4347
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8a1ae927fe99070800000000000000
+      internalID: 8113779479251364056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_10
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3864
+        width: 557
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33880eacc66297960800000000000000
+      internalID: 7600148094866458675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_11
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 3864
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 646352a24820d4010800000000000000
+      internalID: 1174597844479587910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_12
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 3864
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf545da3132126d0800000000000000
+      internalID: -3017091707942182982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_13
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 3864
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c883433a489f90280800000000000000
+      internalID: -9076449225919416180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_14
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 3864
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a57c6b368b7e8e0800000000000000
+      internalID: -1664158798882317766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_15
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 3381
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81bc72e05a27c9aa0800000000000000
+      internalID: -6152916937662280936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_16
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 3381
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa228ba9c5d3a4f0800000000000000
+      internalID: -818575645108720985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_17
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 3381
+        width: 557
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 921fee0acbd297dd0800000000000000
+      internalID: -2487907030968372951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_18
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 3381
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3107916f8303d9190800000000000000
+      internalID: -7954148345661263853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_19
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 3381
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0762dabe6b2ed2f0800000000000000
+      internalID: -946271117120477428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_20
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2898
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bd6a19869916e310800000000000000
+      internalID: 1433861665700081074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_21
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 2898
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63aec48518768a6e0800000000000000
+      internalID: -1826095843668858314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_22
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 2898
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b86246ec3446f50800000000000000
+      internalID: 6873693484996791171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_23
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 2898
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efd5b3e8ebb02e0e0800000000000000
+      internalID: -2242216751419138562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_24
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 2898
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9befd2a3a32ded20800000000000000
+      internalID: 3309340486906407834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_25
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 2415
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cf5cc0c266cb8980800000000000000
+      internalID: -8535510541306929214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_26
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 2415
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d9be9f5c8aa736e0800000000000000
+      internalID: -1857828801390659117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_27
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 2415
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9f19e54a0649c00800000000000000
+      internalID: 906455684085840353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_28
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 2415
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9939594f521b33c80800000000000000
+      internalID: -8344130908012047463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_29
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 2415
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45309aadd8830d0b0800000000000000
+      internalID: -5705998545968364716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_30
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 1932
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1261f942a176630800000000000000
+      internalID: 3920130745239478689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_31
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1932
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6a41980c6a8b600800000000000000
+      internalID: 484320305806091973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_32
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 1932
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfa60704cd45ad300800000000000000
+      internalID: 277627631987354365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_33
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1932
+        width: 555
+        height: 470
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8211f59522d65b880800000000000000
+      internalID: -8595844319471005400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_34
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 1932
+        width: 555
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bda703bd145df27d0800000000000000
+      internalID: -2940897552822666533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_35
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 1449
+        width: 555
+        height: 474
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe1abdfbafe1c3ad0800000000000000
+      internalID: -2721266012529122833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_36
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 1449
+        width: 555
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33b8f83b58c9684c0800000000000000
+      internalID: -4285565897339335885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_37
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 1449
+        width: 555
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3d8a9469124e3a0800000000000000
+      internalID: -6637143021472656446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_38
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 1449
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 520d28513b1992470800000000000000
+      internalID: 8370381580790845477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_39
+      rect:
+        serializedVersion: 2
+        x: 2328
+        y: 1449
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0160cf4a2a0334720800000000000000
+      internalID: 2829158466029618704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_40
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 966
+        width: 557
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b78702dff468007f0800000000000000
+      internalID: -648370668234049413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_41
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 966
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc6fe20be586bdbc0800000000000000
+      internalID: -3757294708218464565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_42
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 966
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0c149a1bb743f9d0800000000000000
+      internalID: -2741768879208129521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_43
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 966
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15accd6a8d21a7070800000000000000
+      internalID: 8104811201128352337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_44
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 966
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d21e8bd9b96f1990800000000000000
+      internalID: -7413090214655159599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_45
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 483
+        width: 559
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 687f349873c16ac20800000000000000
+      internalID: 3217290008654509958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_46
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 483
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00fad95f9ca912c20800000000000000
+      internalID: 3179993004100136704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_47
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 483
+        width: 564
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4b844b3f654f790800000000000000
+      internalID: -7497271874963327776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_48
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 483
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2185ceca62a309510800000000000000
+      internalID: 1553805809227159570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_49
+      rect:
+        serializedVersion: 2
+        x: 2334
+        y: 483
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da834b995f3ebd970800000000000000
+      internalID: 8780862542474131629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_FEELING_GOOD (1)_50
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 0
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef38ae35c2cedc610800000000000000
+      internalID: 1643229114190693374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Armature02 - MASCOT_FEELING_GOOD (1)_0: -3749989748115233509
+      Armature02 - MASCOT_FEELING_GOOD (1)_1: 8670860677082262191
+      Armature02 - MASCOT_FEELING_GOOD (1)_10: 7600148094866458675
+      Armature02 - MASCOT_FEELING_GOOD (1)_11: 1174597844479587910
+      Armature02 - MASCOT_FEELING_GOOD (1)_12: -3017091707942182982
+      Armature02 - MASCOT_FEELING_GOOD (1)_13: -9076449225919416180
+      Armature02 - MASCOT_FEELING_GOOD (1)_14: -1664158798882317766
+      Armature02 - MASCOT_FEELING_GOOD (1)_15: -6152916937662280936
+      Armature02 - MASCOT_FEELING_GOOD (1)_16: -818575645108720985
+      Armature02 - MASCOT_FEELING_GOOD (1)_17: -2487907030968372951
+      Armature02 - MASCOT_FEELING_GOOD (1)_18: -7954148345661263853
+      Armature02 - MASCOT_FEELING_GOOD (1)_19: -946271117120477428
+      Armature02 - MASCOT_FEELING_GOOD (1)_2: 5400361632671154598
+      Armature02 - MASCOT_FEELING_GOOD (1)_20: 1433861665700081074
+      Armature02 - MASCOT_FEELING_GOOD (1)_21: -1826095843668858314
+      Armature02 - MASCOT_FEELING_GOOD (1)_22: 6873693484996791171
+      Armature02 - MASCOT_FEELING_GOOD (1)_23: -2242216751419138562
+      Armature02 - MASCOT_FEELING_GOOD (1)_24: 3309340486906407834
+      Armature02 - MASCOT_FEELING_GOOD (1)_25: -8535510541306929214
+      Armature02 - MASCOT_FEELING_GOOD (1)_26: -1857828801390659117
+      Armature02 - MASCOT_FEELING_GOOD (1)_27: 906455684085840353
+      Armature02 - MASCOT_FEELING_GOOD (1)_28: -8344130908012047463
+      Armature02 - MASCOT_FEELING_GOOD (1)_29: -5705998545968364716
+      Armature02 - MASCOT_FEELING_GOOD (1)_3: -6260752361544494853
+      Armature02 - MASCOT_FEELING_GOOD (1)_30: 3920130745239478689
+      Armature02 - MASCOT_FEELING_GOOD (1)_31: 484320305806091973
+      Armature02 - MASCOT_FEELING_GOOD (1)_32: 277627631987354365
+      Armature02 - MASCOT_FEELING_GOOD (1)_33: -8595844319471005400
+      Armature02 - MASCOT_FEELING_GOOD (1)_34: -2940897552822666533
+      Armature02 - MASCOT_FEELING_GOOD (1)_35: -2721266012529122833
+      Armature02 - MASCOT_FEELING_GOOD (1)_36: -4285565897339335885
+      Armature02 - MASCOT_FEELING_GOOD (1)_37: -6637143021472656446
+      Armature02 - MASCOT_FEELING_GOOD (1)_38: 8370381580790845477
+      Armature02 - MASCOT_FEELING_GOOD (1)_39: 2829158466029618704
+      Armature02 - MASCOT_FEELING_GOOD (1)_4: -2957146034256981647
+      Armature02 - MASCOT_FEELING_GOOD (1)_40: -648370668234049413
+      Armature02 - MASCOT_FEELING_GOOD (1)_41: -3757294708218464565
+      Armature02 - MASCOT_FEELING_GOOD (1)_42: -2741768879208129521
+      Armature02 - MASCOT_FEELING_GOOD (1)_43: 8104811201128352337
+      Armature02 - MASCOT_FEELING_GOOD (1)_44: -7413090214655159599
+      Armature02 - MASCOT_FEELING_GOOD (1)_45: 3217290008654509958
+      Armature02 - MASCOT_FEELING_GOOD (1)_46: 3179993004100136704
+      Armature02 - MASCOT_FEELING_GOOD (1)_47: -7497271874963327776
+      Armature02 - MASCOT_FEELING_GOOD (1)_48: 1553805809227159570
+      Armature02 - MASCOT_FEELING_GOOD (1)_49: 8780862542474131629
+      Armature02 - MASCOT_FEELING_GOOD (1)_5: -5705920267244220471
+      Armature02 - MASCOT_FEELING_GOOD (1)_50: 1643229114190693374
+      Armature02 - MASCOT_FEELING_GOOD (1)_6: -7594064810816500720
+      Armature02 - MASCOT_FEELING_GOOD (1)_7: 9138938535149494393
+      Armature02 - MASCOT_FEELING_GOOD (1)_8: 437182077749980897
+      Armature02 - MASCOT_FEELING_GOOD (1)_9: 8113779479251364056
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

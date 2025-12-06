@@ -79,29 +79,26 @@ public class OpinionWriting : MonoBehaviour
     /// </summary>
     private void OnSubmitClicked()
     {
-        // --- FITUR 1: Opinion Submission System ---
-        
-        // Nonaktifkan tombol untuk mencegah submit ganda
         submitButton.interactable = false;
-        
         string text = opinionInput.text;
         PlayerData author = GameManager.Instance.currentPlayer;
 
-        // Panggil DatabaseManager
         DatabaseManager.Instance.SubmitOpinion(text, currentTopicID, author,
-            // Callback OnSuccess:
-            () => {
-                Debug.Log("Opini berhasil disubmit!");
-                // Simpan opini pemain di GameManager (opsional)
+            // Callback OnSuccess sekarang menerima string 'id'
+            (id) => {
+                Debug.Log($"Opini tersimpan. ID = {id}");
+                
+                // --- SIMPAN ID KE GAMEMANAGER ---
                 GameManager.Instance.currentPlayer.submittedOpinionText = text;
-                // Lanjut ke Step 5: Choice Point [cite: 59]
+                GameManager.Instance.currentPlayer.submittedOpinionID = id; 
+                // --------------------------------
+                
                 ShowChoicePoint();
             },
-            // Callback OnError:
             (error) => {
                 Debug.LogError($"Submit gagal: {error}");
                 if (errorText != null) errorText.text = "Gagal submit. Coba lagi.";
-                submitButton.interactable = true; // Izinkan coba lagi
+                submitButton.interactable = true;
             }
         );
     }

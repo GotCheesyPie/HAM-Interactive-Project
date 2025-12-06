@@ -46,21 +46,23 @@ public class DatabaseManager : MonoBehaviour
         });
     }
 
+   // Perhatikan perubahan pada 'System.Action<string> onSuccess'
     public void SubmitOpinion(string opinionText, string topicID, PlayerData authorData, 
-                              System.Action onSuccess, System.Action<string> onError)
+                              System.Action<string> onSuccess, System.Action<string> onError)
     {
         if (!isFirebaseInitialized)
         {
-            onError?.Invoke("Firebase belum siap. Coba lagi sebentar.");
+            onError?.Invoke("Firebase belum siap.");
             return;
         }
 
         var opinionData = new Dictionary<string, object>
         {
+            // ... (isi data sama seperti sebelumnya) ...
             { "authorAge", authorData.playerAge },
             { "authorCity", authorData.playerCity },
             { "authorName", authorData.playerName },
-            { "createdAt", FieldValue.ServerTimestamp }, // Penting untuk retrieval
+            { "createdAt", FieldValue.ServerTimestamp },
             { "isSeedData", false },
             { "text", opinionText },
             { "topicID", topicID }
@@ -72,10 +74,21 @@ public class DatabaseManager : MonoBehaviour
                 onError?.Invoke(task.Exception.ToString());
                 return;
             }
-            onSuccess?.Invoke();
+
+            // Sukses! Ambil ID Dokumen yang baru dibuat
+            DocumentReference docRef = task.Result;
+            string newID = docRef.Id;
+            
+            Debug.Log($"Opini berhasil disubmit dengan ID: {newID}");
+            
+            // Kirim ID ini kembali ke pemanggil
+            onSuccess?.Invoke(newID); 
         });
     }
     
+    // -----------------------------------------------------------------
+    // --- SISTEM 3: OPINION RETRIEVAL (Fetch & Filter Self) ---
+    // -----------------------------------------------------------------
     public void GetOpinionsForTopic(string topicID, 
                                       System.Action<List<Opinion>> onOpinionsReceived,
                                       System.Action<string> onError)
@@ -86,7 +99,7 @@ public class DatabaseManager : MonoBehaviour
             return;
         }
 
-        // Query: Ambil 30 opini terbaru untuk topik ini
+        // 1. Query: Ambil 30 opini terbaru (jumlah lebih banyak untuk cadangan filter)
         Query query = db.Collection("opinions")
                         .WhereEqualTo("topicID", topicID)
                         .OrderByDescending("createdAt")
@@ -103,30 +116,56 @@ public class DatabaseManager : MonoBehaviour
             QuerySnapshot snapshot = task.Result;
             List<Opinion> fetchedOpinions = new List<Opinion>();
 
+            // 2. AMBIL ID OPINI SAYA DARI GAMEMANAGER
+            string myOpinionID = "";
+            if (GameManager.Instance != null && GameManager.Instance.currentPlayer != null)
+            {
+                myOpinionID = GameManager.Instance.currentPlayer.submittedOpinionID;
+            }
+            
+            Debug.Log($"ID Opini Saya (untuk di-skip): {myOpinionID}");
+
+            // 3. LOOP DAN FILTER
             foreach (DocumentSnapshot document in snapshot.Documents)
             {
-                // Ubah data dari Firebase (Dictionary) ke kelas C# (Opinion)
+                // Jika ID dokumen sama dengan ID opini saya, LEWATI.
+                if (document.Id == myOpinionID)
+                {
+                    Debug.Log("Menemukan opini sendiri, dilewati (skip).");
+                    continue; 
+                }
+                // -------------------------------
+
                 Dictionary<string, object> data = document.ToDictionary();
+                
+                // Cek safety jika ada data field yang hilang
+                if (!data.ContainsKey("text") || !data.ContainsKey("authorName")) continue;
+
                 Opinion op = new Opinion
                 {
                     opinionID = document.Id,
-                    topicID = data["topicID"].ToString(),
+                    topicID = data.ContainsKey("topicID") ? data["topicID"].ToString() : topicID,
                     opinionText = data["text"].ToString(),
                     authorName = data["authorName"].ToString(),
-                    authorCity = data["authorCity"].ToString(),
-                    // Perlu konversi karena data di Firebase adalah Int64
-                    authorAge = Convert.ToInt32(data["authorAge"]) 
+                    authorCity = data.ContainsKey("authorCity") ? data["authorCity"].ToString() : "",
+                    authorAge = data.ContainsKey("authorAge") ? System.Convert.ToInt32(data["authorAge"]) : 0
                 };
+                
                 fetchedOpinions.Add(op);
             }
 
-            // --- Logika "Random" ---
+            // 4. SHUFFLE (ACAK) DAN AMBIL 10
             List<Opinion> randomOpinions = fetchedOpinions
-                .OrderBy(o => UnityEngine.Random.value) // Acak urutannya
-                .Take(10) // Ambil 10
+                .OrderBy(o => UnityEngine.Random.value) // Acak urutan
+                .Take(10) // Ambil maksimal 10
                 .ToList();
 
-            // Kirim 10 opini acak kembali ke game
+            if (randomOpinions.Count == 0)
+            {
+                Debug.LogWarning("Tidak ada opini lain ditemukan (mungkin database masih sepi).");
+            }
+
+            // Kirim hasil
             onOpinionsReceived?.Invoke(randomOpinions);
         });
     }

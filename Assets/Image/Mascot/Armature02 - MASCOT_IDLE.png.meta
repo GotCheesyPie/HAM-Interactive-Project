@@ -1,0 +1,598 @@
+fileFormatVersion: 2
+guid: f26a51fed325bd84dace3239cedafd35
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6258403432466608758
+    second: Armature02 - MASCOT_IDLE_0
+  - first:
+      213: -5268117692320138538
+    second: Armature02 - MASCOT_IDLE_1
+  - first:
+      213: -1384554296009510334
+    second: Armature02 - MASCOT_IDLE_2
+  - first:
+      213: 5788043897963262216
+    second: Armature02 - MASCOT_IDLE_3
+  - first:
+      213: 975516616920699812
+    second: Armature02 - MASCOT_IDLE_4
+  - first:
+      213: 5110866635663263961
+    second: Armature02 - MASCOT_IDLE_5
+  - first:
+      213: 3335990600837627510
+    second: Armature02 - MASCOT_IDLE_6
+  - first:
+      213: 8261847960594960689
+    second: Armature02 - MASCOT_IDLE_7
+  - first:
+      213: 8407068669914422443
+    second: Armature02 - MASCOT_IDLE_8
+  - first:
+      213: 8548382699782607262
+    second: Armature02 - MASCOT_IDLE_9
+  - first:
+      213: 4406873313750725996
+    second: Armature02 - MASCOT_IDLE_10
+  - first:
+      213: -3288041898382135720
+    second: Armature02 - MASCOT_IDLE_11
+  - first:
+      213: 2979081138398432232
+    second: Armature02 - MASCOT_IDLE_12
+  - first:
+      213: 552136055457066344
+    second: Armature02 - MASCOT_IDLE_13
+  - first:
+      213: -4805420536624472422
+    second: Armature02 - MASCOT_IDLE_14
+  - first:
+      213: -7070309795859059555
+    second: Armature02 - MASCOT_IDLE_15
+  - first:
+      213: -3521885422533704035
+    second: Armature02 - MASCOT_IDLE_16
+  - first:
+      213: 5841386604523268834
+    second: Armature02 - MASCOT_IDLE_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 1446
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8d0eb29c3fa529a0800000000000000
+      internalID: -6258403432466608758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_1
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 1446
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dabe4aded2e3e6b0800000000000000
+      internalID: -5268117692320138538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_2
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 1446
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242bc16143319cce0800000000000000
+      internalID: -1384554296009510334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_3
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 1446
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801b7724243435050800000000000000
+      internalID: 5788043897963262216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_4
+      rect:
+        serializedVersion: 2
+        x: 2284
+        y: 1446
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a39c00d13bb98d00800000000000000
+      internalID: 975516616920699812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_5
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 964
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d8ca1960227de640800000000000000
+      internalID: 5110866635663263961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 964
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67ef7f0d6c1db4e20800000000000000
+      internalID: 3335990600837627510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_7
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 964
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1315c8f62faf7a270800000000000000
+      internalID: 8261847960594960689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_8
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 964
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bac9098a968eba470800000000000000
+      internalID: 8407068669914422443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_9
+      rect:
+        serializedVersion: 2
+        x: 2284
+        y: 964
+        width: 558
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9113a036c4f1a670800000000000000
+      internalID: 8548382699782607262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 482
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c65b2442eeb582d30800000000000000
+      internalID: 4406873313750725996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_11
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 482
+        width: 555
+        height: 462
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ee45070578e52d0800000000000000
+      internalID: -3288041898382135720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_12
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 482
+        width: 555
+        height: 472
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb0e43f282d75920800000000000000
+      internalID: 2979081138398432232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_13
+      rect:
+        serializedVersion: 2
+        x: 1714
+        y: 482
+        width: 555
+        height: 475
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86d243d21d499a700800000000000000
+      internalID: 552136055457066344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_14
+      rect:
+        serializedVersion: 2
+        x: 2284
+        y: 482
+        width: 555
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9e912e6b77bf4db0800000000000000
+      internalID: -4805420536624472422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_15
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9c2bd563b631ed90800000000000000
+      internalID: -7070309795859059555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_16
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 0
+        width: 558
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9680423edfbf1fc0800000000000000
+      internalID: -3521885422533704035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Armature02 - MASCOT_IDLE_17
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 0
+        width: 555
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2eaa556fa26c01150800000000000000
+      internalID: 5841386604523268834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Armature02 - MASCOT_IDLE_0: -6258403432466608758
+      Armature02 - MASCOT_IDLE_1: -5268117692320138538
+      Armature02 - MASCOT_IDLE_10: 4406873313750725996
+      Armature02 - MASCOT_IDLE_11: -3288041898382135720
+      Armature02 - MASCOT_IDLE_12: 2979081138398432232
+      Armature02 - MASCOT_IDLE_13: 552136055457066344
+      Armature02 - MASCOT_IDLE_14: -4805420536624472422
+      Armature02 - MASCOT_IDLE_15: -7070309795859059555
+      Armature02 - MASCOT_IDLE_16: -3521885422533704035
+      Armature02 - MASCOT_IDLE_17: 5841386604523268834
+      Armature02 - MASCOT_IDLE_2: -1384554296009510334
+      Armature02 - MASCOT_IDLE_3: 5788043897963262216
+      Armature02 - MASCOT_IDLE_4: 975516616920699812
+      Armature02 - MASCOT_IDLE_5: 5110866635663263961
+      Armature02 - MASCOT_IDLE_6: 3335990600837627510
+      Armature02 - MASCOT_IDLE_7: 8261847960594960689
+      Armature02 - MASCOT_IDLE_8: 8407068669914422443
+      Armature02 - MASCOT_IDLE_9: 8548382699782607262
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

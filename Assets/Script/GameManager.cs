@@ -64,6 +64,7 @@ public class GameManager : MonoBehaviour, IPersistable
         {
             Destroy(gameObject);
         }
+        SceneLoader.Instance.LoadHomeScreen();
     }
 
     public void InitializePlayer()
@@ -78,12 +79,7 @@ public class GameManager : MonoBehaviour, IPersistable
     // Fungsi reset jika pemain ingin "Main Lagi" 
     public void ResetGame()
     {
-        SceneLoader.Instance.LoadInitializationScene();
-    }
-
-    public void OnExit()
-    {
-        Application.Quit();
+        SceneLoader.Instance.LoadHomeScreen();
     }
 
     public void Save(ref GameData data)

@@ -19,6 +19,9 @@ public class EndingManager : MonoBehaviour
     [Header("--- ENDING B: GOOD ---")]
     public GameObject endingBPanel;     // Panel "TERIMA KASIH..."
 
+    [Header("--- CREDIT PANEL ---")]
+    public GameObject creditPanel;     // Panel "TERIMA KASIH..."
+
     [Header("--- BUTTONS ---")]
     public Button restartButton; // Tombol Orange (Icon Refresh)
     public Button exitButton;    // Tombol Merah (Icon X)
@@ -34,6 +37,7 @@ public class EndingManager : MonoBehaviour
         if(redScreenPanel) redScreenPanel.SetActive(false);
         if(listScreenPanel) listScreenPanel.SetActive(false);
         if(endingBPanel) endingBPanel.SetActive(false);
+        if(creditPanel) creditPanel.SetActive(false);
         if(buttonGroup) buttonGroup.SetActive(false);
 
         // 2. Setup Tombol
@@ -84,8 +88,7 @@ public class EndingManager : MonoBehaviour
             victims = GameManager.Instance.disagreedOpinions;
         }
 
-        // Batasi tampilan maksimal 5 nama agar UI rapi
-        int displayCount = Mathf.Min(victims.Count, 5);
+        int displayCount = victims.Count;
 
         // Bersihkan container (hapus dummy text editor jika ada)
         foreach (Transform child in victimListContainer) Destroy(child.gameObject);
@@ -150,15 +153,14 @@ public class EndingManager : MonoBehaviour
         // Biarkan pemain membaca selama 5 detik
         yield return new WaitForSeconds(5.0f);
 
-        // Pindah otomatis ke Credit Scene
-        SceneLoader.Instance.LoadCreditScene();
+        creditPanel.SetActive(true);
     }
 
 
     // =================================================================
     // FUNGSI TOMBOL
     // =================================================================
-    void OnRestartClicked()
+    public void OnRestartClicked()
     {
         // Reset Game Total
         GameManager.Instance.ResetGame();
@@ -166,7 +168,6 @@ public class EndingManager : MonoBehaviour
 
     void OnExitToCreditClicked()
     {
-        // Tombol X mengarah ke Credit Scene (bukan Quit)
-        SceneLoader.Instance.LoadCreditScene();
+        creditPanel.SetActive(true);
     }
 }

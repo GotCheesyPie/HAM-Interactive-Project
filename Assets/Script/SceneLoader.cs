@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
 
     // --- Nama-nama Scene Anda (harus sama dengan di Build Settings) ---
     [Header("Scene Names")]
-    public string initializationScene = "InitializationScene";
+    public string homeScreenScene = "HomeScreenScene";
     public string characterCreationScene = "CharacterCreationScene";
     public string dataInputScene = "DataInputScene";
     public string topicSelectScene = "TopicSelectionScene";
@@ -71,7 +71,6 @@ public class SceneLoader : MonoBehaviour, IPersistable
     {
         GameManager.Instance.currentPlayer.didSeePositiveEnding = isPositiveEnding;
         GameManager.Instance.isPositiveEnding = isPositiveEnding;
-        GameManager.Instance.isPositiveEnding = isPositiveEnding;
         SceneManager.LoadScene(endingScene);
     }
     public void LoadThankYouScreen()
@@ -89,13 +88,8 @@ public class SceneLoader : MonoBehaviour, IPersistable
         SceneManager.LoadScene(data.CurrentScene);
     }
 
-    public void LoadCreditScene()
+    public void LoadHomeScreen()
     {
-        SceneManager.LoadScene(creditScene);
-    }
-
-    public void LoadInitializationScene()
-    {
-        SceneManager.LoadScene(initializationScene);
+        SceneManager.LoadScene(homeScreenScene);
     }
 }

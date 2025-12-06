@@ -39,4 +39,5 @@ public class PlayerData
     public string submittedTopicID;
     public string submittedOpinionText;
     public bool didSeePositiveEnding;
+    public string submittedOpinionID;
 }

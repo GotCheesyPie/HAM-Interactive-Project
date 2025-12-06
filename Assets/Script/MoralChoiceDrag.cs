@@ -6,14 +6,16 @@ using UnityEngine.UI;
 public class MoralChoiceDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Settings")]
-    public bool isDraggable = true; // Apakah objek ini boleh digerakkan?
-    public string targetTag; // Tag objek tujuan (misal: "Trash1" atau "Trash2")
+    public bool isDraggable = true; 
+    public string targetTag; 
     
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
     private Vector2 originalPosition;
     private Transform originalParent;
-    
+    private int originalSiblingIndex;
+    private Canvas rootCanvas;
+
     // Event untuk memberitahu Manager
     public System.Action<GameObject> OnValidDrop; 
 
@@ -21,30 +23,34 @@ public class MoralChoiceDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, I
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        // Cari Canvas paling atas agar drag mulus di atas semua UI
+        rootCanvas = GetComponentInParent<Canvas>().rootCanvas;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         if (!isDraggable) return;
 
+        // 1. Simpan Data Asli
         originalPosition = rectTransform.anchoredPosition;
         originalParent = transform.parent;
-        
-        // Agar objek yang di-drag berada di layer paling atas (render last)
-        // Kita pindahkan sementara ke root canvas atau parent paling tinggi
-        transform.SetAsLastSibling(); 
+        originalSiblingIndex = transform.GetSiblingIndex();
 
-        // Matikan raycast agar kita bisa mendeteksi objek di BAWAH kartu ini
+        // 2. Pindahkan ke Root Canvas agar visual drag di atas segalanya
+        // (Ini solusi agar tidak tertutup objek lain di grid)
+        transform.SetParent(rootCanvas.transform, true);
+
+        // 3. Matikan Raycast agar mouse bisa menembus objek ini dan mendeteksi target di bawahnya
         canvasGroup.blocksRaycasts = false;
-        canvasGroup.alpha = 0.6f; // Visual feedback (transparan)
+        canvasGroup.alpha = 0.6f; 
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (!isDraggable) return;
         
-        // Menggerakkan objek mengikuti mouse/jari
-        rectTransform.anchoredPosition += eventData.delta / GetComponentInParent<Canvas>().scaleFactor;
+        // Gerakkan mengikuti mouse (dengan kompensasi scale factor canvas)
+        rectTransform.anchoredPosition += eventData.delta / rootCanvas.scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -54,24 +60,45 @@ public class MoralChoiceDrag : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
-        // Cek objek apa yang ada di bawah mouse saat dilepas
-        if (eventData.pointerEnter != null && eventData.pointerEnter.CompareTag(targetTag))
+        // Cek objek apa yang ada di bawah mouse
+        // Kita gunakan pointerEnter dari eventData
+        GameObject targetObj = eventData.pointerEnter;
+        
+        // Debugging untuk melihat apa yang kena raycast (Bantu fix bug no. 2)
+        if (targetObj != null) 
+            Debug.Log($"Dropped on: {targetObj.name} (Tag: {targetObj.tag})");
+        else 
+            Debug.Log("Dropped on NOTHING");
+
+        bool dropSuccess = false;
+
+        // Cek Tag Target
+        if (targetObj != null && targetObj.CompareTag(targetTag))
         {
-            // DROP BERHASIL!
-            Debug.Log($"Dropped {name} on {eventData.pointerEnter.name}");
-            OnValidDrop?.Invoke(eventData.pointerEnter);
+            dropSuccess = true;
+        }
+
+        if (dropSuccess)
+        {
+            // --- DROP BERHASIL ---
+            Debug.Log($"VALID DROP: {name} -> {targetObj.name}");
+            OnValidDrop?.Invoke(targetObj);
             
-            // Hancurkan atau sembunyikan objek ini
+            // Hancurkan/Matikan objek ini
             gameObject.SetActive(false);
+            // Kembalikan parent agar struktur hierarki rapi sebelum dimatikan (opsional tapi bagus)
+            transform.SetParent(originalParent); 
         }
         else
         {
-            // DROP GAGAL (Kembali ke posisi awal)
-            rectTransform.anchoredPosition = originalPosition;
+            Debug.Log("INVALID DROP: Returning to start.");
+            
+            transform.SetParent(originalParent);
+            
+            transform.SetSiblingIndex(originalSiblingIndex);
         }
     }
 
-    // Fungsi helper untuk mengaktifkan drag (untuk Trash #1 nanti)
     public void SetDraggable(bool state)
     {
         isDraggable = state;
