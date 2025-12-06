@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [Serializable]
@@ -19,7 +20,17 @@ public class SessionData
         {
             keys.Clear();
             values.Clear();
+            UpdateListsFromDict();
+        }
 
+        public void OnBeforeSerialize()
+        {
+            Clear();
+            UpdateDictFromLists();
+        }
+
+        private void UpdateListsFromDict()
+        {
             foreach (var item in this)
             {
                 keys.Add(item.Key);
@@ -27,9 +38,8 @@ public class SessionData
             }
         }
 
-        public void OnBeforeSerialize()
+        private void UpdateDictFromLists()
         {
-            Clear();
             for (int i = 0; i < Math.Min(keys.Count, values.Count); i++)
             {
                 Add(keys[i], values[i]);
@@ -40,10 +50,9 @@ public class SessionData
 
         public ChoicesDictionary(Dictionary<int, bool> other)
         {
-            foreach (var item in other)
-            {
-                Add(item.Key, item.Value);
-            }
+            keys = other.Keys.ToList();
+            values = other.Values.ToList();
+            UpdateDictFromLists();
         }
     }
 
