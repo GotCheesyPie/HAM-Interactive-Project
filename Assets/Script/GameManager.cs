@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour, IPersistable
             // Opini yang baru saja ditulis pemain
             submittedTopicID = currentPlayer.submittedTopicID,
             submittedOpinionText = currentPlayer.submittedOpinionText,
-            didSeePositiveEnding = currentPlayer.didSeePositiveEnding
+            didSeePositiveEnding = currentPlayer.didSeePositiveEnding,
+            submittedOpinionID = currentPlayer.submittedOpinionID
         };
 
         data.finalVictimData = new()
@@ -143,7 +144,8 @@ public class GameManager : MonoBehaviour, IPersistable
             // Opini yang baru saja ditulis pemain
             submittedTopicID = data.playerData.submittedTopicID,
             submittedOpinionText = data.playerData.submittedOpinionText,
-            didSeePositiveEnding = data.playerData.didSeePositiveEnding
+            didSeePositiveEnding = data.playerData.didSeePositiveEnding,
+            submittedOpinionID = data.playerData.submittedOpinionID
         };
     }
 }

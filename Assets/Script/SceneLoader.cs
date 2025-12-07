@@ -81,7 +81,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
         PlayMusic(flow1Music); 
         SceneManager.LoadScene(characterCreationScene);
     }
-    
+
     public void LoadDataInput()
     {
         PlayMusic(flow1Music); 
@@ -137,6 +137,12 @@ public class SceneLoader : MonoBehaviour, IPersistable
     // --- SAVE/LOAD ---
     public void Save(ref GameData data)
     {
+        // Only save at progressed runs
+        if (
+            SceneManager.GetActiveScene().name == homeScreenScene ||
+            SceneManager.GetActiveScene().name == "InitializationScene"
+        )
+        { return; }
         data.CurrentScene = SceneManager.GetActiveScene().name;
     }
 

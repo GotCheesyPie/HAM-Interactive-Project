@@ -27,12 +27,11 @@ public class PersistenceManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        SceneManager.sceneUnloaded += PullSceneData;
-        SceneManager.activeSceneChanged += RefreshSubscriberList;
-    }
 
-    void Start()
-    {
+        SceneManager.sceneUnloaded += (_) => PullFromPersistables();
+        SceneManager.sceneLoaded += (_, _) => FindAllPersistableScripts();
+        SceneManager.activeSceneChanged += (_, _) => TriggerSave();
+
         storageHandler = gameObject.AddComponent<JSONStorageHandler>();
     }
 
@@ -42,7 +41,14 @@ public class PersistenceManager : MonoBehaviour
         LoadStarted?.Invoke();
 
         GameData = storageHandler.Read("save");
-        PushToPersistables();
+        try
+        {
+            PushToPersistables();
+        }
+        catch (NullReferenceException)
+        {
+            GameData = new();
+        }
 
         LoadEnded?.Invoke();
     }
@@ -84,17 +90,14 @@ public class PersistenceManager : MonoBehaviour
         // Finds every MonoBehaviour script that also implements IPersistable
         IEnumerable<IPersistable> persistables = FindObjectsByType<MonoBehaviour>(FindObjectsSortMode.None).OfType<IPersistable>();
         Subscribers = new List<IPersistable>(persistables);
-
-        Debug.Log($"[{GetType().Name}] Found {Subscribers.Count} persistables");
     }
 
-    void RefreshSubscriberList(Scene _, Scene __)
+    void OnApplicationPause(bool Pause)
     {
+        // Only auto load is implemented because auto save on pause can be unsafe
+        if (Pause) { return; }
+
         FindAllPersistableScripts();
-    }
-
-    void PullSceneData(Scene _)
-    {
-        PullFromPersistables();
+        TriggerLoad();
     }
 }
