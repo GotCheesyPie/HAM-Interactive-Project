@@ -39,7 +39,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
     {
         SceneManager.LoadScene(characterCreationScene);
     }
-    
+
     public void LoadDataInput()
     {
         SceneManager.LoadScene(dataInputScene);
@@ -80,12 +80,18 @@ public class SceneLoader : MonoBehaviour, IPersistable
 
     public void Save(ref GameData data)
     {
+        // Only save at progressed runs
+        if (
+            SceneManager.GetActiveScene().name == homeScreenScene ||
+            SceneManager.GetActiveScene().name == "InitializationScene"
+        )
+        { return; }
         data.CurrentScene = SceneManager.GetActiveScene().name;
     }
 
     public void Load(GameData data)
     {
-        SceneManager.LoadScene(data.CurrentScene);
+        SceneManager.LoadScene(string.IsNullOrEmpty(data.CurrentScene) ? "InitializationScene" : data.CurrentScene);
     }
 
     public void LoadHomeScreen()
