@@ -1,7 +1,9 @@
+using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(AudioSource))] 
+[RequireComponent(typeof(AudioSource))]
 public class SceneLoader : MonoBehaviour, IPersistable
 {
     public static SceneLoader Instance { get; private set; }
@@ -12,19 +14,19 @@ public class SceneLoader : MonoBehaviour, IPersistable
     public string dataInputScene = "DataInputScene";
     public string topicSelectScene = "TopicSelectionScene";
     public string opinionWriteScene = "OpinionWritingScene";
-    public string opinionReviewScene = "OpinionReviewScene"; 
-    public string moralChoiceScene = "MoralChoiceScene"; 
+    public string opinionReviewScene = "OpinionReviewScene";
+    public string moralChoiceScene = "MoralChoiceScene";
     public string endingScene = "EndingScene";
     public string thankYouScene = "ThankYouScene";
     // public string creditScene = "CreditScene"; // DIHAPUS
 
     [Header("Audio Clips (BGM)")]
-    public AudioClip homeMusic;      
-    public AudioClip flow1Music;     
-    public AudioClip flow2Music;     
-    public AudioClip flow3Music;     
-    public AudioClip endingAMusic;   
-    public AudioClip endingBMusic;   
+    public AudioClip homeMusic;
+    public AudioClip flow1Music;
+    public AudioClip flow2Music;
+    public AudioClip flow3Music;
+    public AudioClip endingAMusic;
+    public AudioClip endingBMusic;
     public AudioClip creditMusic; // Tetap ada untuk BGM saat panel muncul
 
     private AudioSource audioSource;
@@ -52,8 +54,9 @@ public class SceneLoader : MonoBehaviour, IPersistable
         if (audioSource.clip == clip && audioSource.isPlaying) return;
 
         audioSource.Stop();
-        audioSource.clip = clip;
-        audioSource.Play();
+        // audioSource.clip = clip;
+        // audioSource.Play();
+        CrossfadeMusicTo(clip, 2);
     }
 
     // --- FUNGSI PUBLIC AUDIO ---
@@ -62,7 +65,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
     {
         PlayMusic(creditMusic);
     }
-    
+
     public void PlayHomeMusic()
     {
         PlayMusic(homeMusic);
@@ -78,37 +81,37 @@ public class SceneLoader : MonoBehaviour, IPersistable
 
     public void LoadCharacterCreation()
     {
-        PlayMusic(flow1Music); 
+        PlayMusic(flow1Music);
         SceneManager.LoadScene(characterCreationScene);
     }
 
     public void LoadDataInput()
     {
-        PlayMusic(flow1Music); 
+        PlayMusic(flow1Music);
         SceneManager.LoadScene(dataInputScene);
     }
 
     public void LoadTopicSelection()
     {
-        PlayMusic(flow1Music); 
+        PlayMusic(flow1Music);
         SceneManager.LoadScene(topicSelectScene);
     }
 
     public void LoadOpinionWriting()
     {
-        PlayMusic(flow1Music); 
+        PlayMusic(flow1Music);
         SceneManager.LoadScene(opinionWriteScene);
     }
 
     public void LoadOpinionReview()
     {
-        PlayMusic(flow2Music); 
+        PlayMusic(flow2Music);
         SceneManager.LoadScene(opinionReviewScene);
     }
 
     public void LoadMoralChoice()
     {
-        PlayMusic(flow3Music); 
+        PlayMusic(flow3Music);
         SceneManager.LoadScene(moralChoiceScene);
     }
 
@@ -152,7 +155,44 @@ public class SceneLoader : MonoBehaviour, IPersistable
         if (sceneToLoad == homeScreenScene) PlayMusic(homeMusic);
         else if (sceneToLoad == opinionReviewScene) PlayMusic(flow2Music);
         else if (sceneToLoad == moralChoiceScene) PlayMusic(flow3Music);
-        else PlayMusic(flow1Music); 
+        else PlayMusic(flow1Music);
         SceneManager.LoadScene(string.IsNullOrEmpty(sceneToLoad) ? "InitializationScene" : sceneToLoad);
+    }
+
+    public void CrossfadeMusicTo(AudioClip next, float durationInSeconds)
+    {
+        AudioSource NewSource = gameObject.AddComponent<AudioSource>();
+        NewSource.volume = 0;
+        NewSource.playOnAwake = false;
+        NewSource.spatialBlend = 0;
+        NewSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup; // 'Music' mixer group
+        NewSource.clip = next;
+
+        NewSource.Play();
+        StartCoroutine(CrossfadeCoroutine(audioSource, NewSource, durationInSeconds,
+            () =>
+            {
+                Destroy(audioSource);
+                audioSource = NewSource;
+            }
+        ));
+    }
+
+    IEnumerator CrossfadeCoroutine(AudioSource current, AudioSource next, float durationInSeconds, Action Crossfaded)
+    {
+        float step = Time.deltaTime * (1f / durationInSeconds);
+        while (true)
+        {
+            current.volume = Mathf.Lerp(current.volume, 0, step);
+            next.volume = Mathf.Lerp(0, 100, step);
+            if (current.volume <= 0.01f && next.volume >= 0.99f)
+            {
+                current.Stop();
+                next.volume = 1;
+                Crossfaded?.Invoke();
+                yield break;
+            }
+            yield return null;
+        }
     }
 }
