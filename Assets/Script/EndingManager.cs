@@ -26,11 +26,6 @@ public class EndingManager : MonoBehaviour
     public Button restartButton; // Tombol Orange (Icon Refresh)
     public Button exitButton;    // Tombol Merah (Icon X)
 
-    [Header("--- AUDIO ---")]
-    public AudioSource audioSource;
-    public AudioClip jarringSound;  // Suara Kaget (Ending A)
-    public AudioClip positiveSound; // Suara Tenang (Ending B)
-
     void Start()
     {
         // 1. Matikan semua panel di awal agar bersih
@@ -70,9 +65,6 @@ public class EndingManager : MonoBehaviour
     {
         // PHASE 1: LAYAR MERAH
         redScreenPanel.SetActive(true);
-        
-        if (audioSource && jarringSound) 
-            audioSource.PlayOneShot(jarringSound);
 
         // Tahan selama 4 detik untuk efek dramatis [cite: 99-101]
         yield return new WaitForSeconds(4.0f);
@@ -146,10 +138,7 @@ public class EndingManager : MonoBehaviour
     {
         // Tampilkan Panel Terima Kasih [cite: 107-108]
         endingBPanel.SetActive(true);
-
-        if (audioSource && positiveSound)
-            audioSource.PlayOneShot(positiveSound);
-
+        
         // Biarkan pemain membaca selama 5 detik
         yield return new WaitForSeconds(5.0f);
 
