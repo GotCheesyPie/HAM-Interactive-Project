@@ -173,13 +173,13 @@ MonoBehaviour:
   moralChoiceScene: MoralChoiceScene
   endingScene: EndingScene
   thankYouScene: ThankYouScene
-  homeMusic: {fileID: 0}
-  flow1Music: {fileID: 0}
-  flow2Music: {fileID: 0}
-  flow3Music: {fileID: 0}
+  homeMusic: {fileID: 8300000, guid: 426d5d998c6e7448db28e77bcc4ccdca, type: 3}
+  flow1Music: {fileID: 8300000, guid: 426d5d998c6e7448db28e77bcc4ccdca, type: 3}
+  flow2Music: {fileID: 8300000, guid: 52f610e0c472444d9ac7ff8c166acc29, type: 3}
+  flow3Music: {fileID: 8300000, guid: 3b460e3030f164686a711212752fcfb5, type: 3}
   endingAMusic: {fileID: 8300000, guid: 10f7e8b25b7032a4d81ae22bb4618c48, type: 3}
   endingBMusic: {fileID: 8300000, guid: eea5fcfb3ad05c146a48389a4bb0db42, type: 3}
-  creditMusic: {fileID: 0}
+  creditMusic: {fileID: 8300000, guid: 426d5d998c6e7448db28e77bcc4ccdca, type: 3}
 --- !u!82 &447572016
 AudioSource:
   m_ObjectHideFlags: 0
@@ -372,6 +372,9 @@ MonoBehaviour:
     Session:
       OpinionsToReview: []
       CurrentOpinionIndex: 0
+      Choices:
+        keys: 
+        values: 
     CurrentScene: 
 --- !u!4 &1750288407
 Transform:
