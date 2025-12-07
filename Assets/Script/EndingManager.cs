@@ -152,7 +152,10 @@ public class EndingManager : MonoBehaviour
     public void OnRestartClicked()
     {
         // Reset Game Total
-        GameManager.Instance.ResetGame();
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.ResetGame();
+        }
     }
 
     void OnExitToCreditClicked()

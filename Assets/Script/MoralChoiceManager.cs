@@ -16,13 +16,13 @@ public class MoralChoiceManager : MonoBehaviour
     public TextMeshProUGUI timerText;
 
     [Header("Pressure Effects")]
-    public Slider timerBar; 
-    public Image vignetteOverlay; 
-    public AudioSource tickingAudio; 
-    
+    public Slider timerBar;
+    public Image vignetteOverlay;
+    public AudioSource tickingAudio;
+
     [Header("Settings")]
     public float timeLimit = 60.0f; // Sesuai gambar "60s"
-    public float maxAudioPitch = 3.0f; 
+    public float maxAudioPitch = 3.0f;
 
     [Header("Trash Cans")]
     public MoralChoiceDrag trashCan1; // Tong Sampah (Tengah)
@@ -36,19 +36,22 @@ public class MoralChoiceManager : MonoBehaviour
     {
         // 1. Setup Awal
         timer = timeLimit;
-        trashCan2.SetActive(false); 
-        trashCan1.SetDraggable(false); 
-        gridCardCount = GameManager.Instance.disagreedOpinions.Count;
-        
+        trashCan2.SetActive(false);
+        trashCan1.SetDraggable(false);
+        if (GameManager.Instance != null)
+        {
+            gridCardCount = GameManager.Instance.disagreedOpinions.Count;
+        }
+
         // Konfigurasi Target Drag
         // Kartu dibuang ke Trash1 (Tong Sampah)
         // Trash1 dibuang ke Trash2 (Kardus)
-        trashCan1.targetTag = "Trash2"; 
+        trashCan1.targetTag = "Trash2";
         trashCan1.OnValidDrop += OnTrash1Dropped; // Listener Ending B
 
         // 2. Setup Teks Sesuai Gambar
         instructionText.text = "Drag opini yang kamu tidak setuju ke tempat sampah."; // [cite: 82]
-        
+
         if (warningSubText != null)
         {
             warningSubText.text = "Opini yang kamu buang tidak akan dilihat oleh orang lain lagi."; // [cite: 83]
@@ -78,7 +81,7 @@ public class MoralChoiceManager : MonoBehaviour
             // Update UI Timer (Opsional: Tambahkan Text angka 60s jika perlu)
             if (timerBar != null)
                 timerBar.value = timer / timeLimit;
-            
+
             if (timerText != null)
                 timerText.text = timer.ToString("F0") + "s";
 
@@ -110,14 +113,14 @@ public class MoralChoiceManager : MonoBehaviour
         for (int i = 0; i < gridCardCount; i++)
         {
             GameObject card = Instantiate(opinionCardSpritePrefab, cardGridContainer);
-            
+
             // --- HAPUS LOGIKA OpinionCardUI ---
             // Kita tidak mengisi teks apa pun karena request "hanya sprite tanpa data tulisan"
 
             // Tambahkan komponen Drag
             MoralChoiceDrag drag = card.GetComponent<MoralChoiceDrag>();
             if (drag == null) drag = card.AddComponent<MoralChoiceDrag>();
-            
+
             drag.targetTag = "Trash1"; // Kartu harus dibuang ke Trash 1
             drag.OnValidDrop += OnOpinionDropped; // Listener Ending A
         }
@@ -127,20 +130,20 @@ public class MoralChoiceManager : MonoBehaviour
     void UnlockSecretOption()
     {
         secretOptionUnlocked = true;
-        
+
         // Hentikan efek tekanan
         if (tickingAudio != null) tickingAudio.Stop();
-        
+
         // Munculkan Trash Can #2 (Kardus Bawah)
         trashCan2.SetActive(true);
-        
+
         // Ubah Instruksi
         instructionText.text = "Kalau tidak mau membuang, drag tempat sampahnya ke tong sampah di bawah"; // [cite: 93]
         if (warningSubText != null) warningSubText.gameObject.SetActive(false); // Sembunyikan warning merah
-        
+
         // Izinkan Trash #1 digerakkan
         trashCan1.SetDraggable(true);
-        
+
         Debug.Log("Secret Option Terbuka!");
     }
 
@@ -159,7 +162,7 @@ public class MoralChoiceManager : MonoBehaviour
         {
             GameManager.Instance.finalVictimData = GameManager.Instance.disagreedOpinions[0];
         }
-        
+
         GameManager.Instance.isPositiveEnding = false;
         SceneLoader.Instance.LoadEnding(false); // Bad Ending
     }

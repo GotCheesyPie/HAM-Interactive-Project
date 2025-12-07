@@ -23,8 +23,9 @@ public class AvatarSelection : MonoBehaviour
         // Nonaktifkan tombol lanjut sampai avatar dipilih
         PopulateAvatarGrid();
         continueButton.onClick.AddListener(OnContinueClicked);
-        
+
         // Ambil ID yang tersimpan di GameManager
+        if (GameManager.Instance == null) { return; }
         int savedID = GameManager.Instance.currentPlayer.selectedAvatarID;
 
         // Cek apakah ID valid (artinya pemain sudah pernah memilih sebelumnya)
@@ -33,14 +34,14 @@ public class AvatarSelection : MonoBehaviour
             // Jika ada data, kita "pura-pura" klik avatar tersebut
             // Ini akan otomatis menampilkan gambar besar & mengaktifkan tombol lanjut
             OnAvatarSelected(savedID);
-            
+
             Debug.Log($"Memuat kembali avatar yang dipilih sebelumnya: ID {savedID}");
         }
         else
         {
             // Jika belum ada data (-1), set tampilan default (kosong)
             continueButton.interactable = false;
-            if (selectedAvatarDisplay != null) 
+            if (selectedAvatarDisplay != null)
                 selectedAvatarDisplay.gameObject.SetActive(false);
         }
     }
@@ -48,8 +49,9 @@ public class AvatarSelection : MonoBehaviour
     // Mengisi grid dengan 40 tombol avatar
     void PopulateAvatarGrid()
     {
+        if (GameManager.Instance == null) { return; }
         List<Sprite> avatarPresets = GameManager.Instance.globalAvatarList;
-        
+
         for (int i = 0; i < avatarPresets.Count; i++)
         {
             // Buat tombol baru
@@ -73,7 +75,7 @@ public class AvatarSelection : MonoBehaviour
     // Dipanggil saat tombol avatar diklik
     public void OnAvatarSelected(int avatarID)
     {
-        selectedAvatarID = avatarID;if (selectedAvatarDisplay != null)
+        selectedAvatarID = avatarID; if (selectedAvatarDisplay != null)
         {
             // 1. Atur sprite-nya
             selectedAvatarDisplay.sprite = GameManager.Instance.globalAvatarList[avatarID];
