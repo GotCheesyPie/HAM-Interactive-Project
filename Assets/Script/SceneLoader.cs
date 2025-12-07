@@ -153,6 +153,6 @@ public class SceneLoader : MonoBehaviour, IPersistable
         else if (sceneToLoad == opinionReviewScene) PlayMusic(flow2Music);
         else if (sceneToLoad == moralChoiceScene) PlayMusic(flow3Music);
         else PlayMusic(flow1Music); 
-        SceneManager.LoadScene(sceneToLoad);
+        SceneManager.LoadScene(string.IsNullOrEmpty(sceneToLoad) ? "InitializationScene" : sceneToLoad);
     }
 }
