@@ -28,6 +28,9 @@ public class MoralChoiceManager : MonoBehaviour
     public MoralChoiceDrag trashCan1; // Tong Sampah (Tengah)
     public GameObject trashCan2; // Kardus Arsip (Bawah)
 
+    [Header("Mascot")]
+    public GameObject mascot;
+
     private float timer;
     private bool secretOptionUnlocked = false;
     private bool gameEnded = false;
@@ -37,6 +40,7 @@ public class MoralChoiceManager : MonoBehaviour
         // 1. Setup Awal
         timer = timeLimit;
         trashCan2.SetActive(false);
+        mascot.SetActive(true);
         trashCan1.SetDraggable(false);
         if (GameManager.Instance != null)
         {
@@ -135,6 +139,7 @@ public class MoralChoiceManager : MonoBehaviour
         if (tickingAudio != null) tickingAudio.Stop();
 
         // Munculkan Trash Can #2 (Kardus Bawah)
+        mascot.SetActive(false);
         trashCan2.SetActive(true);
 
         // Ubah Instruksi

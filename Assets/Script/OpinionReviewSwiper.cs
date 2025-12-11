@@ -114,7 +114,14 @@ public class OpinionReviewSwiper : MonoBehaviour, IPersistable
     {
         // Selesai! Pindah ke Flow 3
         Debug.Log("Selesai me-review 10 opini. Pindah ke Moral Choice.");
-        SceneLoader.Instance.LoadMoralChoice();
+        if(GameManager.Instance.disagreedOpinions.Count == 0)
+        {
+            SceneLoader.Instance.LoadEnding(true);
+        }
+        else
+        {
+            SceneLoader.Instance.LoadMoralChoice();
+        }
     }
 
     public void Save(ref GameData data)
