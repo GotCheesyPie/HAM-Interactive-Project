@@ -53,7 +53,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
         if (audioSource == null) audioSource = GetComponent<AudioSource>();
         if (audioSource.clip == clip && audioSource.isPlaying) return;
 
-        audioSource.Stop();
+        // audioSource.Stop();
         // audioSource.clip = clip;
         // audioSource.Play();
         CrossfadeMusicTo(clip, 2);
@@ -163,8 +163,6 @@ public class SceneLoader : MonoBehaviour, IPersistable
     {
         AudioSource NewSource = gameObject.AddComponent<AudioSource>();
         NewSource.volume = 0;
-        NewSource.playOnAwake = false;
-        NewSource.spatialBlend = 0;
         NewSource.outputAudioMixerGroup = audioSource.outputAudioMixerGroup; // 'Music' mixer group
         NewSource.clip = next;
 
@@ -172,6 +170,7 @@ public class SceneLoader : MonoBehaviour, IPersistable
         StartCoroutine(CrossfadeCoroutine(audioSource, NewSource, durationInSeconds,
             () =>
             {
+                audioSource.Stop();
                 Destroy(audioSource);
                 audioSource = NewSource;
             }
@@ -180,19 +179,16 @@ public class SceneLoader : MonoBehaviour, IPersistable
 
     IEnumerator CrossfadeCoroutine(AudioSource current, AudioSource next, float durationInSeconds, Action Crossfaded)
     {
-        float step = Time.deltaTime * (1f / durationInSeconds);
-        while (true)
+        float progress = 0;
+        while (progress < 1)
         {
-            current.volume = Mathf.Lerp(current.volume, 0, step);
-            next.volume = Mathf.Lerp(0, 100, step);
-            if (current.volume <= 0.01f && next.volume >= 0.99f)
-            {
-                current.Stop();
-                next.volume = 1;
-                Crossfaded?.Invoke();
-                yield break;
-            }
+            progress += Time.deltaTime / durationInSeconds;
+            current.volume = Mathf.Lerp(1, 0, progress);
+            next.volume = Mathf.Lerp(0, 1, progress);
             yield return null;
         }
+        current.volume = 0;
+        next.volume = 1;
+        Crossfaded?.Invoke();
     }
 }
